@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>伯村清唱团 · 演出日程 | Dates</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background: linear-gradient(145deg,#0a2a44,#1c4f7a); color:#f5faff; animation:fade 0.7s; font-family:'Poppins','Noto Serif SC','Microsoft YaHei',serif; }
+    @keyframes fade{to{opacity:1;}}
+    .bg-illumination { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2; overflow:hidden; }
+    .orb { position:absolute; border-radius:50%; filter:blur(80px); animation:floatSoft 20s infinite alternate; }
+    .orb1 { background:rgba(212,175,55,0.4); width:70vmax; height:70vmax; left:-10%; top:-20%; }
+    .orb2 { background:rgba(30,100,160,0.45); width:60vmin; height:60vmin; right:0; bottom:0; animation-duration:25s; }
+    .orb3 { background:rgba(255,215,0,0.3); width:40vmin; height:40vmin; left:20%; top:30%; animation-duration:18s; }
+    @keyframes floatSoft { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(3%,4%) scale(1.1);} }
+    .navbar { display:flex; justify-content:space-between; align-items:center; padding:1.2rem 2.8rem; background:rgba(8,32,50,0.85); backdrop-filter:blur(16px); border-bottom:3px solid #e4b13b; }
+    .logo-block { display:flex; align-items:center; gap:15px; }
+    .logo-icon { font-size:3rem; color:#f5c542; animation:rotateMic 12s infinite linear; }
+    @keyframes rotateMic { 0%{transform:rotate(0);}100%{transform:rotate(360deg);} }
+    .logo-text { 
+    font-size:2.2rem; 
+    font-family:'Playfair Display','Noto Serif SC',serif; 
+    background:linear-gradient(145deg,#fffae6,#ffecb3); 
+    -webkit-background-clip:text; 
+    background-clip:text; 
+    color:transparent; 
+    }
+    .logo-text small { 
+      font-size:1rem; 
+      color:#bbd9ff; 
+      margin-left:8px; 
+      font-family:'Poppins',sans-serif; 
+      font-weight:400;
+      background:none;
+      -webkit-background-clip:unset;
+      background-clip:unset;
+    }
+    .nav-menu { display:flex; gap:2.5rem; }
+    .nav-menu a { color:#f0f7ff; text-decoration:none; font-size:1.4rem; font-family:'Poppins','Microsoft YaHei',sans-serif; position:relative; }
+    .nav-menu a::after { content:''; position:absolute; bottom:0; left:0; width:0%; height:3px; background:linear-gradient(90deg,#f5d742,#e4b13b); transition:0.3s; }
+    .nav-menu a:hover::after { width:100%; }
+    .lang-panel { display:flex; gap:0.5rem; }
+    .lang-btn { background:transparent; border:1.5px solid #e4b13b; color:white; padding:0.4rem 1.2rem; border-radius:40px; font-family:'Poppins',sans-serif; cursor:pointer; }
+    .lang-btn.active { background:#e4b13b; color:#0a2d44; font-weight:600; }
+    .container { max-width:1300px; margin:2rem auto; padding:0 2.5rem; }
+    h1 { font-size:3.5rem; font-family:'Playfair Display','Noto Serif SC',serif; border-bottom:4px solid #f5c542; display:inline-block; margin-bottom:2rem; }
+    .date-list { background:rgba(15,45,70,0.7); backdrop-filter:blur(10px); border-radius:50px; padding:2rem; border:1px solid #e4b13b; }
+    .date-item { display:flex; align-items:center; gap:2rem; padding:1.5rem; border-bottom:1px dashed #3d7ba6; font-size:1.4rem; transition:0.2s; }
+    .date-item:last-child { border:none; }
+    .date-item:hover { background:rgba(228,177,59,0.15); border-radius:60px; padding-left:2.5rem; }
+    .date-icon { color:#f5c542; font-size:2.2rem; width:3.5rem; }
+    .place { color:#ffeaae; margin-left:auto; font-weight:500; }
+    .lang-content { display:none; }
+    .lang-content.active { display:block; }
+    footer { text-align:center; padding:2rem; border-top:2px solid #1f628e; margin-top:4rem; font-family:'Poppins','Noto Serif SC',sans-serif; }
+  </style>
+</head>
+<body>
+<div class="bg-illumination"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
+<div class="bg-illumination">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+</div>
+
+<nav class="navbar">
+  <div class="logo-block">
+    <img src="https://drive.google.com/thumbnail?id=1p7BWUmZgcgdajdSbjSD4pw-29F8oBOiN&sz=w200" 
+         alt="伯村清唱团 Logo" 
+         style="height: 60px; width: auto; border-radius: 10px; filter: drop-shadow(0 0 8px #ffd966);">
+    <span class="logo-text">伯村清唱团<small> BCA</small></span>
+  </div>  <!-- 👈 Added missing closing div -->
+  
+  <div class="nav-menu">
+    <a href="index.html">首页</a>
+    <a href="auditions.html">试音</a>
+    <a href="about.html">关于</a>
+    <a href="dates.html">日程</a>
+    <a href="social.html">社交</a>
+  </div>
+  
+  <div class="lang-panel">
+    <button class="lang-btn" data-lang="zh">中文</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+</nav>
+<div class="container">
+  <div class="lang-content zh active">
+  <h1>📅 2026 演出日程</h1>
+  <div class="date-list">
+    <div class="date-item"><span class="date-icon"><i class="fa-regular fa-calendar"></i></span><span><strong>2月15日</strong> 18:30 Residence Inn at Berkeley</span><span class="place">BCSSA 春节晚会</span></div>
+    <div class="date-item"><span class="date-icon"><i class="fa-regular fa-calendar"></i></span><span><strong>2月16日</strong> 18:30 International House at Berkeley</span><span class="place">BIA 春节晚会</span></div>
+    <div class="date-item"><span class="date-icon"><i class="fa-regular fa-calendar"></i></span><span><strong>2月18日</strong> 19:00 Alumni House</span><span class="place">DCC 春节晚会</span></div>
+    <div class="date-item"><span class="date-icon"><i class="fa-regular fa-calendar"></i></span><span><strong>2月19日</strong> 19:30 Residence Hall Unit 3</span><span class="place">Unit 3 春节晚会</span></div>
+    <div class="date-item"><span class="date-icon"><i class="fa-regular fa-calendar"></i></span><span><strong>2月21日</strong> 18:30 Pauly Ballroom</span><span class="place">CSA 春节晚会</span></div>
+    </div>
+    </div>
+  <div class="lang-content en">
+    <h1>📅 2026 Dates</h1>
+    <div class="date-list">
+      <div class="date-item"><span class="date-icon"><i class="fa-regular fa-calendar"></i></span><span><strong>Feb 15</strong> 18:30 Residence Inn at Berkeley</span><span class="place">BCSSA Lunar New Year Celebration</span></div>
+      <div class="date-item"><span class="date-icon"><i class="fa-regular fa-calendar"></i></span><span><strong>Feb 16</strong> 18:30 International House at Berkeley</span><span class="place">BIA Lunar New Year Celebration</span></div>
+      <div class="date-item"><span class="date-icon"><i class="fa-regular fa-calendar"></i></span><span><strong>Feb 18</strong> 19:00 Alumni House</span><span class="place">DCC Lunar New Year Celebration</span></div>
+      <div class="date-item"><span class="date-icon"><i class="fa-regular fa-calendar"></i></span><span><strong>Feb 19</strong> 19:30 Residence Hall Unit 3</span><span class="place">Unit 3 Lunar New Year Celebration</span></div>
+      <div class="date-item"><span class="date-icon"><i class="fa-regular fa-calendar"></i></span><span><strong>Feb 21</strong> 18:30 Pauly Ballroom</span><span class="place">CSA Lunar New Year Celebration</span></div>
+    </div>
+  </div>
+<div class="lang-content zh active">
+  <p style="text-align: center; margin: 3rem 0;">
+    <span style="color: #f5d742; font-size: 2.5rem; display: inline-block;">
+      <i class="fas fa-star" style="color: #f5c542; margin-right: 15px;"></i>
+      更多精彩，即将呈现！
+      <i class="fas fa-star" style="color: #f5c542; margin-left: 15px;"></i>
+    </span>
+  </p>
+</div>
+<div class="lang-content en">
+  <p style="text-align: center; margin: 3rem 0;">
+    <span style="color: #f5d742; font-size: 2.5rem; display: inline-block;">
+      <i class="fas fa-star" style="color: #f5c542; margin-right: 15px; text-shadow: #f5faff;"></i>
+      More Coming Up!
+      <i class="fas fa-star" style="color: #f5c542; margin-left: 15px;"></i>
+    </span>
+  </p>
+</div>
+</p>
+</div>
+<footer><div class="lang-content zh active">© 伯村清唱团 · 保留所有权利</div><div class="lang-content en"> © Berkeley Chinese Acapella · All rights reserved</div></footer>
+<script>
+(function() {
+  const logoElement = document.querySelector('.logo-text');
+
+  // Update navigation bar text
+  function updateNavbarText(lang) {
+    const navLinks = {
+      zh: ['首页', '试音', '关于', '日程', '社交'],
+      en: ['Home', 'Auditions', 'About', 'Dates', 'Social']
+    };
+    const navItems = document.querySelectorAll('.nav-menu a');
+    if (navItems.length === 5) {
+      navItems.forEach((item, index) => {
+        item.textContent = navLinks[lang][index];
+      });
+    }
+  }
+
+  function setActiveLang(lang) {
+    // Update buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    // Update content
+    document.querySelectorAll('.lang-content').forEach(content => {
+      content.classList.toggle('active', content.classList.contains(lang));
+    });
+    // Update navigation
+    updateNavbarText(lang);
+    // Update logo (PRECISE LINE)
+    if (logoElement) {
+      logoElement.innerHTML = lang === 'zh' 
+        ? '伯村清唱团<small> BCA</small>' 
+        : 'Berkeley Chinese Acapella<small> BCA</small>';
+    }
+    // Save
+    localStorage.setItem('bca-lang', lang);
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setActiveLang(btn.dataset.lang));
+  });
+
+  const savedLang = localStorage.getItem('bca-lang');
+  setActiveLang(savedLang === 'en' ? 'en' : 'zh');
+})();
+</script>
+<script src="lang.js"></script>
+</body>
+</html>

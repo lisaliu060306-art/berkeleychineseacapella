@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>伯村清唱团 · 试音 | Auditions</title>
+  <!-- 精美字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background: linear-gradient(145deg,#0a2a44,#1c4f7a); color:#f5faff; animation:fade 0.7s; font-family:'Poppins','Noto Serif SC','Microsoft YaHei',serif; }
+    @keyframes fade{to{opacity:1;}}
+    .bg-illumination { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2; overflow:hidden; }
+    .orb { position:absolute; border-radius:50%; filter:blur(80px); animation:floatSoft 20s infinite alternate; }
+    .orb1 { background:rgba(212,175,55,0.4); width:70vmax; height:70vmax; left:-10%; top:-20%; }
+    .orb2 { background:rgba(30,100,160,0.45); width:60vmin; height:60vmin; right:0; bottom:0; animation-duration:25s; }
+    .orb3 { background:rgba(255,215,0,0.3); width:40vmin; height:40vmin; left:20%; top:30%; animation-duration:18s; }
+    @keyframes floatSoft { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(3%,4%) scale(1.1);} }
+    
+    /* 导航栏 */
+    .navbar { display:flex; justify-content:space-between; align-items:center; padding:1.2rem 2.8rem; background:rgba(8,32,50,0.85); backdrop-filter:blur(16px); border-bottom:3px solid #e4b13b; flex-wrap:wrap; }
+    .logo-block { display:flex; align-items:center; gap:15px; }
+    .logo-icon { font-size:3rem; color:#f5c542; filter:drop-shadow(0 0 12px #ffd966); animation:rotateMic 12s infinite linear; }
+    @keyframes rotateMic { 0%{transform:rotate(0);}100%{transform:rotate(360deg);} }
+    
+    /* Logo text with proper small BCA styling */
+    .logo-text { 
+      font-size: 2.2rem; 
+      font-family: 'Playfair Display', 'Noto Serif SC', serif; 
+      background: linear-gradient(145deg, #fffae6, #ffecb3); 
+      -webkit-background-clip: text; 
+      background-clip: text; 
+      color: transparent; 
+    }
+    .logo-text small { 
+      font-size: 1rem; 
+      color: #bbd9ff; 
+      margin-left: 8px; 
+      font-family: 'Poppins', sans-serif; 
+      font-weight: 400;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+    }
+    
+    .nav-menu { display:flex; gap:2.5rem; }
+    .nav-menu a { color:#f0f7ff; text-decoration:none; font-size:1.4rem; font-family:'Poppins','Microsoft YaHei',sans-serif; position:relative; }
+    .nav-menu a::after { content:''; position:absolute; bottom:0; left:0; width:0%; height:3px; background:linear-gradient(90deg,#f5d742,#e4b13b); transition:0.3s; }
+    .nav-menu a:hover::after { width:100%; }
+    
+    /* 语言切换 */
+    .lang-panel { display:flex; gap:0.5rem; }
+    .lang-btn { background:transparent; border:1.5px solid #e4b13b; color:white; padding:0.4rem 1.2rem; border-radius:40px; font-family:'Poppins',sans-serif; cursor:pointer; }
+    .lang-btn.active { background:#e4b13b; color:#0a2d44; font-weight:600; }
+    
+    /* 主要内容区 */
+    .container { max-width:1300px; margin:2rem auto; padding:0 2.5rem; }
+    h1 { font-size:3.5rem; font-family:'Playfair Display','Noto Serif SC',serif; border-bottom:4px solid #f5c542; display:inline-block; margin-bottom:2rem; }
+    h2 { font-size:2.5rem; font-family:'Playfair Display','Noto Serif SC',serif; color:#f5d97a; margin:2.5rem 0 1.5rem; }
+    h3 { font-size:1.8rem; font-family:'Playfair Display','Noto Serif SC',serif; color:#f5d97a; margin:1.5rem 0 1rem; }
+    
+    /* 卡片网格 - 两行居中 (2-2-1布局) */
+    .card-grid-wrapper {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-bottom: 3rem;
+    }
+    
+    .card-grid { 
+      display: grid; 
+      grid-template-columns: repeat(3, minmax(280px, 320px));
+      gap: 2rem; 
+      justify-content: center;
+      margin: 0 auto;
+    }
+    
+    /* 让第三行的卡片居中 (人声打击单独一行) */
+    .card-grid > .card:nth-child(5) {
+      grid-column: 2 / 3;
+    }
+    
+    .card { 
+      background:rgba(15,45,70,0.7); 
+      backdrop-filter:blur(10px); 
+      border:1px solid #e4b13b; 
+      border-radius:40px; 
+      padding:2rem; 
+      transition:0.3s; 
+      text-align:center;
+      width: 100%;
+    }
+    .card:hover { transform:translateY(-12px); box-shadow:0 0 35px #f5c54260; }
+    .card i { font-size:3rem; color:#f5c542; margin-bottom:1rem; }
+    .card h3 { font-family:'Playfair Display','Noto Serif SC',serif; font-size:2rem; margin-bottom: 0.5rem; }
+    .card p { font-family:'Poppins','Microsoft YaHei',sans-serif; font-size:1rem; line-height:1.5; }
+    
+    /* 响应式调整 */
+    @media (max-width: 1000px) {
+      .card-grid { 
+        grid-template-columns: repeat(2, minmax(280px, 320px));
+      }
+      .card-grid > .card:nth-child(5) {
+        grid-column: auto;
+      }
+    }
+    
+    @media (max-width: 650px) {
+      .card-grid { 
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* 申请表卡片 - 特殊样式 */
+    .card-apply {
+      background: rgba(212,175,55,0.15) !important;
+      border: 2px solid #f5c542 !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-apply i {
+      font-size: 3.5rem;
+      color: #f5d97a;
+    }
+    .card-apply h3 {
+      color: #f5d97a;
+      font-size: 2.2rem;
+    }
+    
+    /* 申请表按钮 */
+    .btn-apply {
+      display: inline-block;
+      background: #e4b13b;
+      color: #0a2d44;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 1rem;
+      border: 2px solid transparent;
+      transition: 0.3s;
+      font-size: 1.2rem;
+    }
+    .btn-apply:hover {
+      background: #f5d742;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ffd966;
+    }
+    
+    /* 报名表格独立区域 */
+    .form-section {
+      background: rgba(212, 175, 55, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 60px;
+      padding: 3rem;
+      margin: 3rem 0;
+      border: 2px solid #f5c542;
+      text-align: center;
+    }
+    .form-title {
+      font-size: 2.5rem;
+      color: #f5d97a;
+      margin-bottom: 1rem;
+      font-family: 'Playfair Display', 'Noto Serif SC', serif;
+    }
+    .form-description {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      color: #e0f0ff;
+    }
+    .form-button {
+      display: inline-block;
+      background: #e4b13b;
+      color: #0a2d44;
+      padding: 1.2rem 3.5rem;
+      border-radius: 60px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1.5rem;
+      border: 2px solid transparent;
+      transition: 0.3s;
+      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.3);
+    }
+    .form-button:hover {
+      background: #f5d742;
+      transform: scale(1.05) translateY(-5px);
+      box-shadow: 0 20px 30px -5px #f5c54280;
+    }
+    .form-button i {
+      margin-right: 10px;
+    }
+    
+    /* 详细要求区域 */
+    .requirements-detailed {
+      background: rgba(10, 35, 60, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      padding: 2.5rem;
+      margin: 2rem 0;
+      border: 1px solid #e4b13b;
+    }
+    
+    .req-item {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px dashed #3d7ba6;
+    }
+    .req-item:last-child { border-bottom: none; }
+    
+    .req-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #f5d97a;
+      margin-bottom: 0.8rem;
+      font-family: 'Playfair Display', 'Noto Serif SC', serif;
+    }
+    .req-desc {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #e0f0ff;
+    }
+    
+    /* FAQ 区域 - 带下划线的问题 */
+    .faq-section {
+      background: rgba(10, 35, 60, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      padding: 2.5rem;
+      margin: 2rem 0;
+      border: 1px solid #e4b13b;
+    }
+    .faq-item {
+      margin-bottom: 1.8rem;
+      border-bottom: 1px dashed #3d7ba6;
+      padding-bottom: 1.5rem;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-question {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #f5d97a;
+      margin-bottom: 0.5rem;
+      font-family: 'Playfair Display', 'Noto Serif SC', serif;
+      text-decoration: underline;
+      text-decoration-color: #e4b13b;
+      text-underline-offset: 8px;
+      text-decoration-thickness: 2px;
+    }
+    .faq-answer {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #e0f0ff;
+    }
+    
+    .requirements-list {
+      list-style: none;
+      padding: 0;
+    }
+    .requirements-list li {
+      font-size: 1.3rem;
+      margin: 1rem 0;
+      padding-left: 2rem;
+      position: relative;
+    }
+    .requirements-list li::before {
+      content: "•";
+      color: #f5c542;
+      font-size: 2rem;
+      position: absolute;
+      left: 0;
+      top: -0.3rem;
+    }
+    
+    .lang-content { display:none; }
+    .lang-content.active { display:block; }
+    
+    .highlight {
+      color: #f5d97a;
+      font-weight: 600;
+    }
+    
+    .date-highlight {
+      background: rgba(228, 177, 59, 0.2);
+      border-radius: 30px;
+      padding: 0.5rem 1.5rem;
+      display: inline-block;
+      margin: 1rem 0;
+      font-size: 1.3rem;
+      border-left: 4px solid #f5c542;
+    }
+    
+    footer { text-align:center; padding:2rem; border-top:2px solid #1f628e; margin-top:4rem; font-family:'Poppins','Noto Serif SC',sans-serif; }
+  </style>
+</head>
+<body>
+<div class="bg-illumination"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
+
+<nav class="navbar">
+  <div class="logo-block">
+  <img src="https://drive.google.com/thumbnail?id=1p7BWUmZgcgdajdSbjSD4pw-29F8oBOiN&sz=w200" 
+       alt="伯村清唱团 Logo" 
+       style="height: 60px; width: auto; border-radius: 10px; filter: drop-shadow(0 0 8px #ffd966);">
+  <span class="logo-text">伯村清唱团<small> BCA</small></span>
+</div>
+  <div class="nav-menu">
+    <a href="index.html">首页</a>
+    <a href="auditions.html">试音</a>
+    <a href="about.html">关于</a>
+    <a href="dates.html">日程</a>
+    <a href="social.html">社交</a>
+  </div>
+  <div class="lang-panel">
+    <button class="lang-btn" data-lang="zh">中文</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+</nav>
+
+<div class="container">
+  <!-- 中文内容 -->
+  <div class="lang-content zh active">
+    <h1>🎤 试音 · 声部招募</h1>
+    
+    <!-- 声部卡片 - 居中 -->
+    <div class="card-grid">
+      <div class="card"><i class="fas fa-female"></i><h3>女高音</h3><p>清亮高音 · 假声技巧<br>视唱能力 · 头声共鸣</p></div>
+      <div class="card"><i class="fas fa-female"></i><h3>女中音</h3><p>温暖音色 · 和声技巧<br>音域宽广 · 混声出色</p></div>
+      <div class="card"><i class="fas fa-male"></i><h3>男高音</h3><p>透亮高音 · 即兴能力<br>头声技巧 · 情感表达</p></div>
+      <div class="card"><i class="fas fa-male"></i><h3>男低音</h3><p>沉稳低音 · 节奏感<br>胸腔共鸣 · 和声根基</p></div>
+      <div class="card"><i class="fas fa-drum"></i><h3>人声打击</h3><p>节奏编配 · 模拟鼓声<br>创意无限 · 即兴创作</p></div>
+    </div>
+
+    <!-- 独立报名表格区域 -->
+    <div class="form-section">
+      <div class="form-title">📝 试音报名表</div>
+      <div class="form-description">
+        准备好加入我们了吗？点击下方按钮填写报名表。<br>
+        <span style="color: #f5d97a;">第一轮试音：1月30-31日 (周五六) · 地点详见报名表</span>
+      </div>
+      <a href="#" class="form-button"><i class="fas fa-pen"></i> 立即填写报名表</a>
+    </div>
+
+    <!-- 详细试音要求 -->
+    <div class="requirements-detailed">
+      <h2>📋 试音环节</h2>
+      
+      <div class="req-item">
+        <div class="req-title">1. 音域测试</div>
+        <div class="req-desc">我们会测试你的音域范围，找到最适合你的声部。别担心，我们只需要你唱出最舒服的高音和低音！</div>
+      </div>
+      
+      <div class="req-item">
+        <div class="req-title">2. 音感记忆</div>
+        <div class="req-desc">我们会弹奏或哼唱一段短旋律，请你模仿出来。这是测试你的音感记忆力，不是测试你是否专业！</div>
+      </div>
+      
+      <div class="req-item">
+        <div class="req-title">3. 独唱部分</div>
+        <div class="req-desc">请准备一段30秒到1分钟的独唱（一段主歌+一段副歌）。选一首最能展现你声音特色的歌，不需要华丽的技巧，只要真实、自信！</div>
+      </div>
+      
+      <div class="req-item">
+        <div class="req-title">4. 和声配合</div>
+        <div class="req-desc">我们会和你在现场配合一段简短的和声，测试你在多人合唱中保持自己声部的能力。这是阿卡贝拉最重要的技能之一！</div>
+      </div>
+      
+      <div class="req-item">
+        <div class="req-title">5. 视唱测试</div>
+        <div class="req-desc">我们会给你一段简单的乐谱，请你试唱。如果你不会视唱，完全没关系！我们更看重你的热情和潜力。但如果你会一些，一定要展示出来！</div>
+      </div>
+      
+      <div class="req-item">
+        <div class="req-title">🎤 人声打击特别环节</div>
+        <div class="req-desc">如果你试音人声打击，除了准备一段独唱，也请准备一段30秒的节奏展示，展现你的创意和技巧！</div>
+      </div>
+      
+      <p style="margin-top:2rem; font-size:1.2rem; text-align:center; color:#f5d97a;">
+        <i class="fas fa-heart"></i> 最重要的是：做你自己，享受音乐！<i class="fas fa-heart"></i>
+      </p>
+    </div>
+
+    <!-- 复试说明 - 更新 -->
+    <div class="date-highlight">
+      <i class="fas fa-star" style="color:#f5c542; margin-right:10px;"></i> 
+      <strong>复试通知：</strong> 2月1日 (周日) · 与团员一起学习一首新作品，我们会观察你的声音融合度和学习能力
+      <br><br><i class="fas fa-music" style="color:#f5c542; margin-right:10px;"></i> <strong>更新：</strong>感谢大家对伯村清唱团的关注！2026年春季的招新报名已经截止。欢迎下学期再来试音，我们期待你的声音！
+    </div>
+
+    <!-- FAQ 区域 - 更热情详细 -->
+    <div class="faq-section">
+      <h2>❓ 常见问题 · 有问必答</h2>
+      
+      <div class="faq-item">
+        <div class="faq-question">我需要什么程度的音乐经验？</div>
+        <div class="faq-answer">我们团员的经验各不相同，从初学者到音乐专业的学生都有！我们最看重的是：<span class="highlight">良好的音准、能够聆听并融入集体、愿意接受反馈并调整</span>。如果你能读谱、会编曲、或者有人声打击经验，那是大大的加分项！但最重要的是你对音乐的热情！</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">我必须会读五线谱吗？</div>
+        <div class="faq-answer">对于歌手，我们<span class="highlight">希望你有一定的读谱基础</span>，因为我们主要用乐谱学习新歌。但如果你读谱不太熟练，完全没关系！我们愿意帮助你进步。如果你完全不会读谱，我们鼓励你先学习一些基础，然后随时欢迎你下次再来试音！<br><br>对于人声打击，<span class="highlight">不需要会读谱</span>。我们的人声打击部分通常靠耳朵学习和创作。</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">我要准备什么来试音？</div>
+        <div class="faq-answer">请填写试音申请表，并<span class="highlight">准备一段30秒到1分钟的独唱</span>（一段主歌+一段副歌）。选一首让你唱得舒服、能展现你声音特色的歌。不需要炫技，真实最重要！</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">真的要准备独唱吗？我有点紧张……</div>
+        <div class="faq-answer">完全理解！紧张是正常的。但请放心，我们不是要找完美的歌手，而是找<span class="highlight">真实的、有潜力的、热爱音乐的人</span>。选一首你喜欢的歌，在舒适的音域里唱，如果有强弱对比就更好了!</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">我是人声打击，试音会有什么不同？</div>
+        <div class="faq-answer">我们的 VP 既要会打击，也要会唱歌。所以请准备：<span class="highlight">1) 一段独唱展示你的歌声；2) 一段30秒的节奏展示</span>，展现你的创意、技巧和风格。我们超爱有创意的 VP！</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">什么时候通知复试？复试是什么样的？</div>
+        <div class="faq-answer"><span class="highlight">复试将在 2月1日 (周日) 举行</span>。进入复试后，你会和我们的一些团员一起学习一首新的作品，我们会观察你的声音如何融入集体、你的学习能力、以及你与他人合作的方式。这不是考试，而是一次合作的体验！</div>
+      </div>
+      
+    <div class="faq-item">
+      <div class="faq-question">加入后需要投入多少时间？</div>
+      <div class="faq-answer">作为团员，你需要参加：<span class="highlight">每周两次两小时的全团排练</span>（周二晚上7-9点，周日下午4-6点）、<span class="highlight">每周一次一小时的分声部排练</span>（时间由声部内部灵活协调），以及不定期的演出机会。每学期末会有大型音乐会。最重要的是，我们也是一个大家庭，经常一起玩耍！</div>
+    </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">我可以同时试音其他团体吗？</div>
+        <div class="faq-answer"><span class="highlight">当然可以！</span>学期初是探索新社团的最好时机。我们鼓励你多试几个团体，找到最适合你的音乐之家。无论你最后去了哪里，我们都为你开心！当然，我们衷心希望是你选择我们！</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">我还有其他问题！</div>
+        <div class="faq-answer">太好了！随时发邮件给我们：<span class="highlight">berkeleychineseacapella@gmail.com</span> 或者私信我们的社交媒体账号。我们很乐意回答你的所有问题！</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 英文内容 -->
+  <div class="lang-content en">
+    <h1>🎤 Auditions · Open Positions</h1>
+    
+    <!-- Voice part cards - centered -->
+    <div class="card-grid">
+      <div class="card"><i class="fas fa-female"></i><h3>Soprano</h3><p>Bright Range · Falsetto<br>Sight-singing · Head Voice</p></div>
+      <div class="card"><i class="fas fa-female"></i><h3>Alto</h3><p>Warm Tone · Harmony<br>Rich Mid-range · Blend</p></div>
+      <div class="card"><i class="fas fa-male"></i><h3>Tenor</h3><p>Clear Highs · Improvisation<br>Head Voice · Expression</p></div>
+      <div class="card"><i class="fas fa-male"></i><h3>Bass</h3><p>Deep Foundation · Rhythm<br>Chest Voice · Bass Lines</p></div>
+      <div class="card"><i class="fas fa-drum"></i><h3>Vocal Percussion</h3><p>Beat Patterns · Drum Sounds<br>Creativity · Groove</p></div>
+    </div>
+
+    <!-- Separate Audition Form Section -->
+    <div class="form-section">
+      <div class="form-title">📝 Audition Form</div>
+      <div class="form-description">
+        Ready to join us? Click the button below to fill out the audition form.<br>
+        <span style="color: #f5d97a;">First Round: Jan 30-31 (Fri-Sat) · Location on form</span>
+      </div>
+      <a href="#" class="form-button"><i class="fas fa-pen"></i> Fill Out Audition Form</a>
+    </div>
+
+    <!-- Detailed Requirements -->
+    <div class="requirements-detailed">
+      <h2>📋 Audition Components</h2>
+      
+      <div class="req-item">
+        <div class="req-title">1. Vocal Range Test</div>
+        <div class="req-desc">We'll find your comfortable range to determine the best voice part for you. Just sing your highest and lowest comfortable notes!</div>
+      </div>
+      
+      <div class="req-item">
+        <div class="req-title">2. Tonal Memory</div>
+        <div class="req-desc">We'll play or hum a short melody, and you'll echo it back. This tests your ear, not your perfection!</div>
+      </div>
+      
+      <div class="req-item">
+        <div class="req-title">3. Solo</div>
+        <div class="req-desc">Prepare a 30-second to 1-minute solo (a verse and chorus). Choose a song that showcases your voice naturally. No fancy runs needed—just be you!</div>
+      </div>
+      
+      <div class="req-item">
+        <div class="req-title">4. Harmony Skills</div>
+        <div class="req-desc">We'll sing with you to test how well you can hold your part in a group. This is essential for a cappella!</div>
+      </div>
+      
+      <div class="req-item">
+        <div class="req-title">5. Sight-singing </div>
+        <div class="req-desc">We'll give you a simple sheet music excerpt to sing. If you can't sight-read, no problem! We care more about passion and potential. But if you can, show us!</div>
+      </div>
+      
+      <div class="req-item">
+        <div class="req-title">🎤 For Vocal Percussion</div>
+        <div class="req-desc">In addition to a short solo, prepare a 30-second beat showcase. Show us your creativity and style!</div>
+      </div>
+      
+      <p style="margin-top:2rem; font-size:1.2rem; text-align:center; color:#f5d97a;">
+        <i class="fas fa-heart"></i> Most important: Be yourself and enjoy the music! <i class="fas fa-heart"></i>
+      </p>
+    </div>
+
+    <!-- Callback info - updated -->
+    <div class="date-highlight">
+      <i class="fas fa-star" style="color:#f5c542; margin-right:10px;"></i> 
+      <strong>Callbacks:</strong> Sunday, Feb 1 · Learn a piece with our members — we'll see how your voice blends with the group!
+      <br><br>      <i class="fas fa-music" style="color:#f5c542; margin-right:10px;"></i> <strong>Update: </strong>Thank you for your interest in BCA. The application cycle for 2026 spring has closed. We hope you consider auditioning next semester!
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+      <h2>❓ Frequently Asked Questions</h2>
+      
+      <div class="faq-item">
+        <div class="faq-question">What kind of experience do I need?</div>
+        <div class="faq-answer">Our members range from beginners to music majors! We value: <span class="highlight">good pitch, ability to listen and blend, and openness to feedback</span>. If you can read music, arrange, or do vocal percussion, that's a huge plus! But passion is what matters most.</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Do I need to read sheet music?</div>
+        <div class="faq-answer">For singers, <span class="highlight">we prefer some sheet music familiarity</span> since we learn from written music. But if you're rusty or not great at it, no worries! We'll help you grow. If you can't read music at all, we encourage you to learn some basics and audition again next time!<br><br>For beatboxers, <span class="highlight">no need to read music</span>. VP parts are often learned by ear or created on the spot.</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">What should I bring to the audition?</div>
+        <div class="faq-answer">Fill out the audition form and <span class="highlight">prepare a 30-second to 1-minute solo</span> (a verse and chorus). Pick a song that feels comfortable and shows off your natural voice. That's it!</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Wait, I have to prepare a solo? I'm nervous...</div>
+        <div class="faq-answer">Totally understand! But don't worry—we're not looking for perfection. We want <span class="highlight">authenticity, potential, and passion</span>. Pick a song you love, in a comfortable range!</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">I'm a beatboxer. What's different?</div>
+        <div class="faq-answer">Our VP's both sing AND beatbox. So prepare: <span class="highlight">1) a short solo showcasing your singing; 2) a 30-second beat showcase</span> showing your creativity and skills. We LOVE creative VP's!</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">When are callbacks? What happens?</div>
+        <div class="faq-answer"><span class="highlight">Callbacks: Sunday, Feb 1</span>. You'll learn a short piece with some of our members — we'll observe how your voice blends, how you learn, and how you collaborate. It's a musical experience, not a test!</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">What's the time commitment?</div>
+        <div class="faq-answer">As a member, expect: <span class="highlight">two 2-hour weekly group rehearsals</span> (Tuesdays 7-9pm, Sundays 4-6pm), <span class="highlight">one 1-hour weekly sectional</span> (flexible time arranged by your voice part), plus occasional gigs throughout the semester. We also have a big concert at the end of each semester. Most importantly, we're a family and love hanging out together! </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Can I audition for other groups at the same time?</div>
+        <div class="faq-answer"><span class="highlight">Absolutely!</span> The beginning of the semester is the perfect time to explore. Try out different groups and find your perfect musical home. Wherever you end up, we're happy for you! (But we really hope it's us!)</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">I have more questions!</div>
+        <div class="faq-answer">Great! Email us anytime at <span class="highlight">berkeleychineseacapella@gmail.com</span> or DM us on social media. We'd love to chat!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="lang-content zh active">© 伯村清唱团 · 保留所有权利</div>
+  <div class="lang-content en">© Berkeley Chinese Acapella · All rights reserved</div>
+</footer>
+
+<script>
+(function() {
+  const logoElement = document.querySelector('.logo-text');
+
+  // Update navigation bar text
+  function updateNavbarText(lang) {
+    const navLinks = {
+      zh: ['首页', '试音', '关于', '日程', '社交'],
+      en: ['Home', 'Auditions', 'About', 'Dates', 'Social']
+    };
+    const navItems = document.querySelectorAll('.nav-menu a');
+    if (navItems.length === 5) {
+      navItems.forEach((item, index) => {
+        item.textContent = navLinks[lang][index];
+      });
+    }
+  }
+
+  function setActiveLang(lang) {
+    // Update buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    // Update content
+    document.querySelectorAll('.lang-content').forEach(content => {
+      content.classList.toggle('active', content.classList.contains(lang));
+    });
+    // Update navigation
+    updateNavbarText(lang);
+    // Update logo
+    if (logoElement) {
+      logoElement.innerHTML = lang === 'zh' 
+        ? '伯村清唱团<small> BCA</small>' 
+        : 'Berkeley Chinese Acapella<small> BCA</small>';
+    }
+    // Save
+    localStorage.setItem('bca-lang', lang);
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setActiveLang(btn.dataset.lang));
+  });
+
+  const savedLang = localStorage.getItem('bca-lang');
+  setActiveLang(savedLang === 'en' ? 'en' : 'zh');
+})();
+</script>
+
+</body>
+</html>

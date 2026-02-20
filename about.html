@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>伯村清唱团 · 关于 | About & Members</title>
+  <!-- 精美字体 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background: linear-gradient(145deg,#0a2a44,#1c4f7a); color:#f5faff; animation:fade 0.7s; font-family:'Poppins','Noto Serif SC','Microsoft YaHei',serif; }
+    @keyframes fade{to{opacity:1;}}
+    .bg-illumination { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2; overflow:hidden; }
+    .orb { position:absolute; border-radius:50%; filter:blur(80px); animation:floatSoft 20s infinite alternate; opacity:0.3; }
+    .orb1 { background:rgba(212,175,55,0.4); width:70vmax; height:70vmax; left:-10%; top:-20%; }
+    .orb2 { background:rgba(30,100,160,0.45); width:60vmin; height:60vmin; right:0; bottom:0; animation-duration:25s; }
+    .orb3 { background:rgba(255,215,0,0.3); width:40vmin; height:40vmin; left:20%; top:30%; animation-duration:18s; }
+    @keyframes floatSoft { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(3%,4%) scale(1.1);} }
+    
+    /* 导航栏 */
+    .navbar { display:flex; justify-content:space-between; align-items:center; padding:1.2rem 2.8rem; background:rgba(8,32,50,0.85); backdrop-filter:blur(16px); border-bottom:3px solid #e4b13b; flex-wrap:wrap; }
+    .logo-block { display:flex; align-items:center; gap:15px; }
+    .logo-icon { font-size:3rem; color:#f5c542; filter:drop-shadow(0 0 12px #ffd966); animation:rotateMic 12s infinite linear; }
+    @keyframes rotateMic { 0%{transform:rotate(0);}100%{transform:rotate(360deg);} }
+    .logo-text { font-size:2.2rem; font-family:'Playfair Display','Noto Serif SC',serif; background:linear-gradient(145deg,#fffae6,#ffecb3); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .logo-text small { font-size:1rem; color:#bbd9ff; margin-left:8px; font-family:'Poppins',sans-serif; }
+    .nav-menu { display:flex; gap:2.5rem; }
+    .nav-menu a { color:#f0f7ff; text-decoration:none; font-size:1.4rem; font-family:'Poppins','Microsoft YaHei',sans-serif; position:relative; }
+    .nav-menu a::after { content:''; position:absolute; bottom:0; left:0; width:0%; height:3px; background:linear-gradient(90deg,#f5d742,#e4b13b); transition:0.3s; }
+    .nav-menu a:hover::after { width:100%; }
+    
+    /* 语言切换 */
+    .lang-panel { display:flex; gap:0.5rem; }
+    .lang-btn { background:transparent; border:1.5px solid #e4b13b; color:white; padding:0.4rem 1.2rem; border-radius:40px; font-family:'Poppins',sans-serif; cursor:pointer; }
+    .lang-btn.active { background:#e4b13b; color:#0a2d44; font-weight:600; }
+    
+    /* 主要内容区 */
+    .container { max-width:1300px; margin:2rem auto; padding:0 2.5rem; }
+    h1 { font-size:3.5rem; font-family:'Playfair Display','Noto Serif SC',serif; border-bottom:4px solid #f5c542; display:inline-block; margin-bottom:2rem; }
+    h2 { font-size:2.5rem; font-family:'Playfair Display','Noto Serif SC',serif; color:#f5d97a; margin:4rem 0 2rem; border-bottom:2px solid #e4b13b; padding-bottom:0.5rem; }
+    
+    /* About 盒子 */
+    .about-box { background:rgba(15,45,70,0.7); backdrop-filter:blur(10px); border-radius:50px; padding:2.5rem; border:1px solid #e4b13b; font-size:1.3rem; line-height:1.8; }
+    .gold-quote { font-size:2.2rem; color:#f5d97a; margin:1.5rem 0; font-family:'Playfair Display','Noto Serif SC',serif; }
+    
+    /* 成员网格 */
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0 3rem;
+    }
+    
+    .member-card {
+      background: rgba(15, 45, 70, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(228, 177, 59, 0.4);
+      border-radius: 30px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 15px 30px -10px rgba(0,0,0,0.5);
+    }
+    
+    .member-card:hover {
+      transform: translateY(-10px);
+      border-color: #f5c542;
+      box-shadow: 0 20px 40px -5px #f5c54280;
+    }
+    
+    .member-image {
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+      border-bottom: 3px solid #e4b13b;
+      position: relative;
+    }
+    
+    .member-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    
+    .member-card:hover .member-image img {
+      transform: scale(1.1);
+    }
+    
+    .member-part {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #e4b13b;
+      color: #0a2d44;
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      z-index: 2;
+    }
+    
+    .member-info {
+      padding: 1.5rem;
+    }
+    
+    .member-name {
+      font-size: 1.8rem;
+      font-family: 'Playfair Display', 'Noto Serif SC', serif;
+      color: #f5d97a;
+      margin-bottom: 0.3rem;
+    }
+    
+    .member-year {
+      font-size: 0.9rem;
+      color: #aac9ff;
+      margin-bottom: 1rem;
+      background: rgba(255,255,255,0.1);
+      display: inline-block;
+      padding: 0.2rem 1rem;
+      border-radius: 50px;
+    }
+    
+    .member-favorites {
+      margin: 1rem 0;
+      padding: 0.8rem 0;
+      border-top: 1px dashed rgba(228, 177, 59, 0.4);
+      border-bottom: 1px dashed rgba(228, 177, 59, 0.4);
+    }
+    
+    .favorite-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .favorite-item i {
+      color: #f5c542;
+      width: 24px;
+    }
+    
+    .member-social {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-top: 1rem;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    
+    .member-card:hover .member-social {
+      opacity: 1;
+    }
+    
+    .member-social a {
+      color: white;
+      font-size: 1.3rem;
+      transition: all 0.3s;
+    }
+    
+    .member-social a:hover {
+      color: #f5c542;
+      transform: translateY(-3px);
+    }
+    
+    .lang-content { display:none; }
+    .lang-content.active { display:block; }
+    
+    footer { text-align:center; padding:2rem; border-top:2px solid #1f628e; margin-top:4rem; font-family:'Poppins','Noto Serif SC',sans-serif; }
+  </style>
+</head>
+<body>
+<div class="bg-illumination">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+</div>
+
+<nav class="navbar">
+  <div class="logo-block">
+  <img src="https://drive.google.com/thumbnail?id=1p7BWUmZgcgdajdSbjSD4pw-29F8oBOiN&sz=w200" 
+       alt="伯村清唱团 Logo" 
+       style="height: 60px; width: auto; border-radius: 10px; filter: drop-shadow(0 0 8px #ffd966);">
+    <span class="logo-text" id="logo-main">伯村清唱团<small> BCA</small></span>
+  </div>
+  <div class="nav-menu">
+    <a href="index.html">首页</a>
+    <a href="auditions.html">试音</a>
+    <a href="about.html">关于</a>
+    <a href="dates.html">日程</a>
+    <a href="social.html">社交</a>
+  </div>
+  <div class="lang-panel">
+    <button class="lang-btn" data-lang="zh">中文</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+</nav>
+
+<div class="container">
+  <!-- 中文内容 -->
+  <div class="lang-content zh active">
+    <h1>✨ 关于伯村清唱团</h1>
+    
+    <!-- ABOUT SECTION (TOP) -->
+    <div class="about-box">
+      <div class="gold-quote">“让中文旋律，在纯然人声中绽放”</div>
+      <p>我们是<span class="highlight">伯村清唱团 (BCA)</span>，加州大学伯克利分校首支混声中文阿卡贝拉团体。因对中文音乐的热爱而相聚，我们用纯粹的人声编织经典与现代的旋律，在无伴奏的和声中诉说文化的温度。每一首歌，都是我们对中华文化的致敬与分享。</p>
+      <p style="margin-top:2rem;"><i class="fas fa-users" style="color:gold;"></i> 20+位常驻歌手 · 5个声部 (SATB+VP)</p>
+    </div>
+
+    <!-- MEMBERS GALLERY (BOTTOM) - 6 CARDS -->
+    <h2><i class="fas fa-users" style="margin-right: 15px;"></i> 我们的成员 · 20+ 声部</h2>
+    
+    <div class="members-grid">
+      
+      <!-- 成员卡片 1 -->
+      <div class="member-card">
+        <div class="member-image">
+          <img src="https://drive.google.com/thumbnail?id=YOUR_IMAGE_ID_1&sz=w600" alt="张一涵">
+          <span class="member-part">女高音 · Soprano</span>
+        </div>
+        <div class="member-info">
+          <div class="member-name">张一涵</div>
+          <div class="member-year">加入 2021 · 团长</div>
+          <div class="member-favorites">
+            <div class="favorite-item"><i class="fas fa-heart"></i> 最爱: 周深《大鱼》</div>
+            <div class="favorite-item"><i class="fas fa-utensils"></i> 喜欢: 抹茶蛋糕</div>
+            <div class="favorite-item"><i class="fas fa-paw"></i> 宠物: 布偶猫"小蓝"</div>
+          </div>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-weixin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-spotify"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 成员卡片 2 -->
+      <div class="member-card">
+        <div class="member-image">
+          <img src="https://drive.google.com/thumbnail?id=YOUR_IMAGE_ID_2&sz=w600" alt="李思远">
+          <span class="member-part">男高音 · Tenor</span>
+        </div>
+        <div class="member-info">
+          <div class="member-name">李思远</div>
+          <div class="member-year">加入 2022 · 编曲</div>
+          <div class="member-favorites">
+            <div class="favorite-item"><i class="fas fa-heart"></i> 最爱: 皇后乐队</div>
+            <div class="favorite-item"><i class="fas fa-utensils"></i> 喜欢: 重庆火锅</div>
+            <div class="favorite-item"><i class="fas fa-gamepad"></i> 爱好: 弹钢琴</div>
+          </div>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-weixin"></i></a>
+            <a href="#"><i class="fab fa-spotify"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 成员卡片 3 -->
+      <div class="member-card">
+        <div class="member-image">
+          <img src="https://drive.google.com/thumbnail?id=YOUR_IMAGE_ID_3&sz=w600" alt="王若溪">
+          <span class="member-part">女中音 · Alto</span>
+        </div>
+        <div class="member-info">
+          <div class="member-name">王若溪</div>
+          <div class="member-year">加入 2020 · 声乐指导</div>
+          <div class="member-favorites">
+            <div class="favorite-item"><i class="fas fa-heart"></i> 最爱: 蔡健雅</div>
+            <div class="favorite-item"><i class="fas fa-utensils"></i> 喜欢: 寿司</div>
+            <div class="favorite-item"><i class="fas fa-book"></i> 阅读: 村上春树</div>
+          </div>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-weixin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 成员卡片 4 -->
+      <div class="member-card">
+        <div class="member-image">
+          <img src="https://drive.google.com/thumbnail?id=YOUR_IMAGE_ID_4&sz=w600" alt="陈明远">
+          <span class="member-part">男低音 · Bass</span>
+        </div>
+        <div class="member-info">
+          <div class="member-name">陈明远</div>
+          <div class="member-year">加入 2019 · 团长助理</div>
+          <div class="member-favorites">
+            <div class="favorite-item"><i class="fas fa-heart"></i> 最爱: 陈奕迅</div>
+            <div class="favorite-item"><i class="fas fa-utensils"></i> 喜欢: 牛肉面</div>
+            <div class="favorite-item"><i class="fas fa-camera"></i> 摄影: 胶片机</div>
+          </div>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-weixin"></i></a>
+            <a href="#"><i class="fab fa-spotify"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 成员卡片 5 -->
+      <div class="member-card">
+        <div class="member-image">
+          <img src="https://drive.google.com/thumbnail?id=YOUR_IMAGE_ID_5&sz=w600" alt="赵子轩">
+          <span class="member-part">人声打击 · VP</span>
+        </div>
+        <div class="member-info">
+          <div class="member-name">赵子轩</div>
+          <div class="member-year">加入 2023 · 节奏担当</div>
+          <div class="member-favorites">
+            <div class="favorite-item"><i class="fas fa-heart"></i> 最爱: Daft Punk</div>
+            <div class="favorite-item"><i class="fas fa-utensils"></i> 喜欢: 披萨</div>
+            <div class="favorite-item"><i class="fas fa-drum"></i> 打鼓: 十年鼓手</div>
+          </div>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-weixin"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 成员卡片 6 -->
+      <div class="member-card">
+        <div class="member-image">
+          <img src="https://drive.google.com/thumbnail?id=YOUR_IMAGE_ID_6&sz=w600" alt="刘雨桐">
+          <span class="member-part">女高音 · Soprano</span>
+        </div>
+        <div class="member-info">
+          <div class="member-name">刘雨桐</div>
+          <div class="member-year">加入 2022</div>
+          <div class="member-favorites">
+            <div class="favorite-item"><i class="fas fa-heart"></i> 最爱: 张惠妹</div>
+            <div class="favorite-item"><i class="fas fa-utensils"></i> 喜欢: 奶茶</div>
+            <div class="favorite-item"><i class="fas fa-dog"></i> 宠物: 柯基"豆豆"</div>
+          </div>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-weixin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 继续添加更多卡片直到20个... -->
+      
+    </div>
+    
+    <p style="text-align:center; margin:2rem 0 4rem; font-size:1.2rem; color:#f5d97a;">
+      <i class="fas fa-users" style="margin-right:10px;"></i>
+      共20+位成员 · 每个声部都是独一无二的声音
+    </p>
+  </div>
+
+  <!-- 英文内容 - SAME 6 CARDS -->
+  <div class="lang-content en">
+    <h1>✨ About Berkeley Chinese Acapella</h1>
+    
+    <!-- ABOUT SECTION (ENGLISH) -->
+    <div class="about-box">
+      <div class="gold-quote">“Where Mandarin melodies meet golden harmonies”</div>
+      <p>We are <span class="highlight">Berkeley Chinese A Cappella (BCA)</span>, UC Berkeley's premier co-ed Chinese a cappella group. Born from a shared passion for Chinese music, we weave together timeless Mandarin melodies with the pure, intimate power of the human voice. Through our music, we celebrate and share the richness of Chinese culture—one harmony at a time.</p>
+      <p style="margin-top:2rem;"><i class="fas fa-users" style="color:gold;"></i> 20+ singers · 5 voice parts (SATB+VP)</p>
+    </div>
+
+    <!-- MEMBERS GALLERY (ENGLISH) - SAME 6 CARDS -->
+    <h2><i class="fas fa-users" style="margin-right: 15px;"></i> Our Members · 20+ Voices</h2>
+    
+    <div class="members-grid">
+      
+      <!-- Member Card 1 -->
+      <div class="member-card">
+        <div class="member-image">
+          <img src="https://drive.google.com/thumbnail?id=YOUR_IMAGE_ID_1&sz=w600" alt="Yihan Zhang">
+          <span class="member-part">Soprano</span>
+        </div>
+        <div class="member-info">
+          <div class="member-name">Yihan Zhang</div>
+          <div class="member-year">Joined 2021 · Director</div>
+          <div class="member-favorites">
+            <div class="favorite-item"><i class="fas fa-heart"></i> Loves: Zhou Shen "Big Fish"</div>
+            <div class="favorite-item"><i class="fas fa-utensils"></i> Fav food: Matcha cake</div>
+            <div class="favorite-item"><i class="fas fa-paw"></i> Pet: Ragdoll cat "Blue"</div>
+          </div>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-weixin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-spotify"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Member Card 2 -->
+      <div class="member-card">
+        <div class="member-image">
+          <img src="https://drive.google.com/thumbnail?id=YOUR_IMAGE_ID_2&sz=w600" alt="Siyuan Li">
+          <span class="member-part">Tenor</span>
+        </div>
+        <div class="member-info">
+          <div class="member-name">Siyuan Li</div>
+          <div class="member-year">Joined 2022 · Arranger</div>
+          <div class="member-favorites">
+            <div class="favorite-item"><i class="fas fa-heart"></i> Loves: Queen</div>
+            <div class="favorite-item"><i class="fas fa-utensils"></i> Fav food: Chongqing hotpot</div>
+            <div class="favorite-item"><i class="fas fa-gamepad"></i> Hobby: Piano</div>
+          </div>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-weixin"></i></a>
+            <a href="#"><i class="fab fa-spotify"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Member Card 3 -->
+      <div class="member-card">
+        <div class="member-image">
+          <img src="https://drive.google.com/thumbnail?id=YOUR_IMAGE_ID_3&sz=w600" alt="Ruoxi Wang">
+          <span class="member-part">Alto</span>
+        </div>
+        <div class="member-info">
+          <div class="member-name">Ruoxi Wang</div>
+          <div class="member-year">Joined 2020 · Vocal Coach</div>
+          <div class="member-favorites">
+            <div class="favorite-item"><i class="fas fa-heart"></i> Loves: Tanya Chua</div>
+            <div class="favorite-item"><i class="fas fa-utensils"></i> Fav food: Sushi</div>
+            <div class="favorite-item"><i class="fas fa-book"></i> Reads: Murakami</div>
+          </div>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-weixin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Member Card 4 -->
+      <div class="member-card">
+        <div class="member-image">
+          <img src="https://drive.google.com/thumbnail?id=YOUR_IMAGE_ID_4&sz=w600" alt="Mingyuan Chen">
+          <span class="member-part">Bass</span>
+        </div>
+        <div class="member-info">
+          <div class="member-name">Mingyuan Chen</div>
+          <div class="member-year">Joined 2019 · Assistant Director</div>
+          <div class="member-favorites">
+            <div class="favorite-item"><i class="fas fa-heart"></i> Loves: Eason Chan</div>
+            <div class="favorite-item"><i class="fas fa-utensils"></i> Fav food: Beef noodles</div>
+            <div class="favorite-item"><i class="fas fa-camera"></i> Photography: Film</div>
+          </div>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-weixin"></i></a>
+            <a href="#"><i class="fab fa-spotify"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Member Card 5 -->
+      <div class="member-card">
+        <div class="member-image">
+          <img src="https://drive.google.com/thumbnail?id=YOUR_IMAGE_ID_5&sz=w600" alt="Zixuan Zhao">
+          <span class="member-part">VP</span>
+        </div>
+        <div class="member-info">
+          <div class="member-name">Zixuan Zhao</div>
+          <div class="member-year">Joined 2023 · Beatboxer</div>
+          <div class="member-favorites">
+            <div class="favorite-item"><i class="fas fa-heart"></i> Loves: Daft Punk</div>
+            <div class="favorite-item"><i class="fas fa-utensils"></i> Fav food: Pizza</div>
+            <div class="favorite-item"><i class="fas fa-drum"></i> Drums: 10 years</div>
+          </div>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-weixin"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Member Card 6 -->
+      <div class="member-card">
+        <div class="member-image">
+          <img src="https://drive.google.com/thumbnail?id=YOUR_IMAGE_ID_6&sz=w600" alt="Yutong Liu">
+          <span class="member-part">Soprano</span>
+        </div>
+        <div class="member-info">
+          <div class="member-name">Yutong Liu</div>
+          <div class="member-year">Joined 2022</div>
+          <div class="member-favorites">
+            <div class="favorite-item"><i class="fas fa-heart"></i> Loves: A-Mei</div>
+            <div class="favorite-item"><i class="fas fa-utensils"></i> Fav food: Milk tea</div>
+            <div class="favorite-item"><i class="fas fa-dog"></i> Pet: Corgi "Dou Dou"</div>
+          </div>
+          <div class="member-social">
+            <a href="#"><i class="fab fa-weixin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Add more cards until 20 total -->
+      
+    </div>
+    
+    <p style="text-align:center; margin:2rem 0 4rem; font-size:1.2rem; color:#f5d97a;">
+      <i class="fas fa-users" style="margin-right:10px;"></i>
+      20+ members · Every voice is unique
+    </p>
+  </div>
+</div>
+
+<footer>
+  <div class="lang-content zh active">© 伯村清唱团 · 保留所有权利</div>
+  <div class="lang-content en">© Berkeley Chinese Acapella · All rights reserved</div>
+</footer>
+
+<script>
+(function() {
+  const logoElement = document.getElementById('logo-main');
+
+  function updateNavbarText(lang) {
+    const navLinks = {
+      zh: ['首页', '试音', '关于', '日程', '社交'],
+      en: ['Home', 'Auditions', 'About', 'Dates', 'Social']
+    };
+    const navItems = document.querySelectorAll('.nav-menu a');
+    if (navItems.length === 5) {
+      navItems.forEach((item, index) => {
+        item.textContent = navLinks[lang][index];
+      });
+    }
+  }
+
+  function setActiveLang(lang) {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    document.querySelectorAll('.lang-content').forEach(content => {
+      content.classList.toggle('active', content.classList.contains(lang));
+    });
+    updateNavbarText(lang);
+    if (logoElement) {
+      logoElement.innerHTML = lang === 'zh' 
+        ? '伯村清唱团<small> BCA</small>' 
+        : 'Berkeley Chinese Acapella<small> BCA</small>';
+    }
+    localStorage.setItem('bca-lang', lang);
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setActiveLang(btn.dataset.lang));
+  });
+
+  const savedLang = localStorage.getItem('bca-lang');
+  setActiveLang(savedLang === 'en' ? 'en' : 'zh');
+})();
+</script>
+</body>
+</html>
