@@ -7,7 +7,7 @@
     };
     
     const navItems = document.querySelectorAll('.nav-menu a');
-    if (navItems.length === 5) {
+    if (navItems.length === 6) {
       navItems.forEach((item, index) => {
         item.textContent = navLinks[lang][index];
       });

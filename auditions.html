@@ -21,9 +21,51 @@
     .orb3 { background:rgba(255,215,0,0.3); width:40vmin; height:40vmin; left:20%; top:30%; animation-duration:18s; }
     @keyframes floatSoft { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(3%,4%) scale(1.1);} }
     
-    /* 导航栏 */
-    .navbar { display:flex; justify-content:space-between; align-items:center; padding:1.2rem 2.8rem; background:rgba(8,32,50,0.85); backdrop-filter:blur(16px); border-bottom:3px solid #e4b13b; flex-wrap:wrap; }
-    .logo-block { display:flex; align-items:center; gap:15px; }
+    /* 导航栏 - 响应式 */
+    .navbar { 
+      display:flex; 
+      justify-content:space-between; 
+      align-items:center; 
+      padding:1.2rem 2.8rem; 
+      background:rgba(8,32,50,0.85); 
+      backdrop-filter:blur(16px); 
+      border-bottom:3px solid #e4b13b; 
+      flex-wrap:wrap; 
+      gap: 1rem;
+    }
+    
+    @media (max-width: 900px) {
+      .navbar {
+        padding: 1rem 1.5rem;
+        justify-content: center;
+      }
+      .nav-menu {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 1rem;
+        flex-direction: column;
+      }
+      .logo-block {
+        margin-bottom: 0.5rem;
+      }
+      .nav-menu {
+        gap: 1rem;
+      }
+      .nav-menu a {
+        font-size: 1.2rem;
+      }
+      .lang-panel {
+        margin-top: 0.5rem;
+      }
+    }
+    
+    .logo-block { display:flex; align-items:center; gap:15px; flex-wrap:wrap; }
     .logo-icon { font-size:3rem; color:#f5c542; filter:drop-shadow(0 0 12px #ffd966); animation:rotateMic 12s infinite linear; }
     @keyframes rotateMic { 0%{transform:rotate(0);}100%{transform:rotate(360deg);} }
     
@@ -47,23 +89,52 @@
       background-clip: unset;
     }
     
-    .nav-menu { display:flex; gap:2.5rem; }
+    .nav-menu { display:flex; gap:2.5rem; flex-wrap:wrap; }
     .nav-menu a { color:#f0f7ff; text-decoration:none; font-size:1.4rem; font-family:'Poppins','Microsoft YaHei',sans-serif; position:relative; }
     .nav-menu a::after { content:''; position:absolute; bottom:0; left:0; width:0%; height:3px; background:linear-gradient(90deg,#f5d742,#e4b13b); transition:0.3s; }
     .nav-menu a:hover::after { width:100%; }
     
     /* 语言切换 */
-    .lang-panel { display:flex; gap:0.5rem; }
+    .lang-panel { display:flex; gap:0.5rem; flex-wrap:wrap; }
     .lang-btn { background:transparent; border:1.5px solid #e4b13b; color:white; padding:0.4rem 1.2rem; border-radius:40px; font-family:'Poppins',sans-serif; cursor:pointer; }
     .lang-btn.active { background:#e4b13b; color:#0a2d44; font-weight:600; }
     
-    /* 主要内容区 */
-    .container { max-width:1300px; margin:2rem auto; padding:0 2.5rem; }
+    /* 主要内容区 - 响应式 */
+    .container { 
+      max-width:1300px; 
+      margin:2rem auto; 
+      padding:0 2.5rem; 
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      h1 {
+        font-size: 2.8rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1rem;
+      }
+      h1 {
+        font-size: 2.2rem;
+      }
+      .form-section {
+        padding: 1.5rem;
+      }
+    }
+    
     h1 { font-size:3.5rem; font-family:'Playfair Display','Noto Serif SC',serif; border-bottom:4px solid #f5c542; display:inline-block; margin-bottom:2rem; }
     h2 { font-size:2.5rem; font-family:'Playfair Display','Noto Serif SC',serif; color:#f5d97a; margin:2.5rem 0 1.5rem; }
     h3 { font-size:1.8rem; font-family:'Playfair Display','Noto Serif SC',serif; color:#f5d97a; margin:1.5rem 0 1rem; }
     
-    /* 卡片网格 - 两行居中 (2-2-1布局) */
+    /* 卡片网格 - 响应式 */
     .card-grid-wrapper {
       display: flex;
       justify-content: center;
@@ -102,7 +173,7 @@
     /* 响应式调整 */
     @media (max-width: 1000px) {
       .card-grid { 
-        grid-template-columns: repeat(2, minmax(280px, 320px));
+        grid-template-columns: repeat(2, minmax(260px, 300px));
       }
       .card-grid > .card:nth-child(5) {
         grid-column: auto;
@@ -112,6 +183,10 @@
     @media (max-width: 650px) {
       .card-grid { 
         grid-template-columns: 1fr;
+        max-width: 320px;
+      }
+      .card {
+        padding: 1.5rem;
       }
     }
     
@@ -133,7 +208,6 @@
       font-size: 2.2rem;
     }
     
-    /* 申请表按钮 */
     .btn-apply {
       display: inline-block;
       background: #e4b13b;
@@ -153,7 +227,6 @@
       box-shadow: 0 0 20px #ffd966;
     }
     
-    /* 报名表格独立区域 */
     .form-section {
       background: rgba(212, 175, 55, 0.1);
       backdrop-filter: blur(10px);
@@ -196,6 +269,16 @@
       margin-right: 10px;
     }
     
+    @media (max-width: 480px) {
+      .form-button {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+      }
+      .form-title {
+        font-size: 2rem;
+      }
+    }
+    
     /* 详细要求区域 */
     .requirements-detailed {
       background: rgba(10, 35, 60, 0.7);
@@ -204,6 +287,18 @@
       padding: 2.5rem;
       margin: 2rem 0;
       border: 1px solid #e4b13b;
+    }
+    
+    @media (max-width: 480px) {
+      .requirements-detailed {
+        padding: 1.5rem;
+      }
+      .req-title {
+        font-size: 1.4rem;
+      }
+      .req-desc {
+        font-size: 1rem;
+      }
     }
     
     .req-item {
@@ -226,7 +321,7 @@
       color: #e0f0ff;
     }
     
-    /* FAQ 区域 - 带下划线的问题 */
+
     .faq-section {
       background: rgba(10, 35, 60, 0.7);
       backdrop-filter: blur(10px);
@@ -235,6 +330,19 @@
       margin: 2rem 0;
       border: 1px solid #e4b13b;
     }
+    
+    @media (max-width: 480px) {
+      .faq-section {
+        padding: 1.5rem;
+      }
+      .faq-question {
+        font-size: 1.3rem;
+      }
+      .faq-answer {
+        font-size: 1rem;
+      }
+    }
+    
     .faq-item {
       margin-bottom: 1.8rem;
       border-bottom: 1px dashed #3d7ba6;
@@ -295,7 +403,27 @@
       border-left: 4px solid #f5c542;
     }
     
-    footer { text-align:center; padding:2rem; border-top:2px solid #1f628e; margin-top:4rem; font-family:'Poppins','Noto Serif SC',sans-serif; }
+    @media (max-width: 480px) {
+      .date-highlight {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+    
+    footer { 
+      text-align:center; 
+      padding:2rem; 
+      border-top:2px solid #1f628e; 
+      margin-top:4rem; 
+      font-family:'Poppins','Noto Serif SC',sans-serif; 
+    }
+    
+    @media (max-width: 480px) {
+      footer {
+        padding: 1.5rem;
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -303,16 +431,17 @@
 
 <nav class="navbar">
   <div class="logo-block">
-  <img src="https://drive.google.com/thumbnail?id=1p7BWUmZgcgdajdSbjSD4pw-29F8oBOiN&sz=w200" 
-       alt="伯村清唱团 Logo" 
-       style="height: 60px; width: auto; border-radius: 10px; filter: drop-shadow(0 0 8px #ffd966);">
-  <span class="logo-text">伯村清唱团<small> BCA</small></span>
-</div>
+    <img src="https://drive.google.com/thumbnail?id=1p7BWUmZgcgdajdSbjSD4pw-29F8oBOiN&sz=w200" 
+         alt="伯村清唱团 Logo" 
+         style="height: 60px; width: auto; border-radius: 10px; filter: drop-shadow(0 0 8px #ffd966);">
+    <span class="logo-text">伯村清唱团<small> BCA</small></span>
+  </div>
   <div class="nav-menu">
     <a href="index.html">首页</a>
     <a href="auditions.html">试音</a>
     <a href="about.html">关于</a>
     <a href="dates.html">日程</a>
+    <a href="connect.html">邀约</a>
     <a href="social.html">社交</a>
   </div>
   <div class="lang-panel">
@@ -322,27 +451,29 @@
 </nav>
 
 <div class="container">
-  <!-- 中文内容 -->
+  <!-- Chinese Content-->
   <div class="lang-content zh active">
     <h1>🎤 试音 · 声部招募</h1>
     
-    <!-- 声部卡片 - 居中 -->
-    <div class="card-grid">
-      <div class="card"><i class="fas fa-female"></i><h3>女高音</h3><p>清亮高音 · 假声技巧<br>视唱能力 · 头声共鸣</p></div>
-      <div class="card"><i class="fas fa-female"></i><h3>女中音</h3><p>温暖音色 · 和声技巧<br>音域宽广 · 混声出色</p></div>
-      <div class="card"><i class="fas fa-male"></i><h3>男高音</h3><p>透亮高音 · 即兴能力<br>头声技巧 · 情感表达</p></div>
-      <div class="card"><i class="fas fa-male"></i><h3>男低音</h3><p>沉稳低音 · 节奏感<br>胸腔共鸣 · 和声根基</p></div>
-      <div class="card"><i class="fas fa-drum"></i><h3>人声打击</h3><p>节奏编配 · 模拟鼓声<br>创意无限 · 即兴创作</p></div>
+    <!-- cards -->
+    <div class="card-grid-wrapper">
+      <div class="card-grid">
+        <div class="card"><i class="fas fa-female"></i><h3>女高音</h3><p>清亮高音 · 假声技巧<br>视唱能力 · 头声共鸣</p></div>
+        <div class="card"><i class="fas fa-female"></i><h3>女中音</h3><p>温暖音色 · 和声技巧<br>音域宽广 · 混声出色</p></div>
+        <div class="card"><i class="fas fa-male"></i><h3>男高音</h3><p>透亮高音 · 即兴能力<br>头声技巧 · 情感表达</p></div>
+        <div class="card"><i class="fas fa-male"></i><h3>男低音</h3><p>沉稳低音 · 节奏感<br>胸腔共鸣 · 和声根基</p></div>
+        <div class="card"><i class="fas fa-drum"></i><h3>人声打击</h3><p>节奏编配 · 模拟鼓声<br>创意无限 · 即兴创作</p></div>
+      </div>
     </div>
 
-    <!-- 独立报名表格区域 -->
+    <!-- sign up form  -->
     <div class="form-section">
       <div class="form-title">📝 试音报名表</div>
       <div class="form-description">
         准备好加入我们了吗？点击下方按钮填写报名表。<br>
         <span style="color: #f5d97a;">第一轮试音：1月30-31日 (周五六) · 地点详见报名表</span>
       </div>
-      <a href="#" class="form-button"><i class="fas fa-pen"></i> 立即填写报名表</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9GQlA1aKe6pbz7HMnSXLUnUm208a-2FjYHs-uV2Ql7rLC2Q/closedform?pli=1" class="form-button"><i class="fas fa-pen"></i> 立即填写报名表</a>
     </div>
 
     <div class="requirements-detailed">
@@ -382,6 +513,7 @@
         <i class="fas fa-heart"></i> 最重要的是：做你自己，享受音乐！<i class="fas fa-heart"></i>
       </p>
     </div>
+    
     <div class="date-highlight">
       <i class="fas fa-star" style="color:#f5c542; margin-right:10px;"></i> 
       <strong>复试通知：</strong> 2月1日 (周日) · 与团员一起学习一首新作品，我们会观察你的声音融合度和学习能力
@@ -421,10 +553,10 @@
         <div class="faq-answer"><span class="highlight">复试将在 2月1日 (周日) 举行</span>。进入复试后，你会和我们的一些团员一起学习一首新的作品，我们会观察你的声音如何融入集体、你的学习能力、以及你与他人合作的方式。这不是考试，而是一次合作的体验！</div>
       </div>
       
-    <div class="faq-item">
-      <div class="faq-question">加入后需要投入多少时间？</div>
-      <div class="faq-answer">作为团员，你需要参加：<span class="highlight">每周两次两小时的全团排练</span>（周二晚上7-9点，周日下午4-6点）、<span class="highlight">每周一次一小时的分声部排练</span>（时间由声部内部灵活协调），以及不定期的演出机会。每学期末会有大型音乐会。最重要的是，我们也是一个大家庭，经常一起玩耍！</div>
-    </div>
+      <div class="faq-item">
+        <div class="faq-question">加入后需要投入多少时间？</div>
+        <div class="faq-answer">作为团员，你需要参加：<span class="highlight">每周两次两小时的全团排练</span>（周二晚上7-9点，周日下午4-6点）、<span class="highlight">每周一次一小时的分声部排练</span>（时间由声部内部灵活协调），以及不定期的演出机会。每学期末会有大型音乐会。最重要的是，我们也是一个大家庭，经常一起玩耍！</div>
+      </div>
       
       <div class="faq-item">
         <div class="faq-question">我可以同时试音其他团体吗？</div>
@@ -438,15 +570,18 @@
     </div>
   </div>
 
+  <!-- English Content -->
   <div class="lang-content en">
     <h1>🎤 Auditions · Open Positions</h1>
     
-    <div class="card-grid">
-      <div class="card"><i class="fas fa-female"></i><h3>Soprano</h3><p>Bright Range · Falsetto<br>Sight-singing · Head Voice</p></div>
-      <div class="card"><i class="fas fa-female"></i><h3>Alto</h3><p>Warm Tone · Harmony<br>Rich Mid-range · Blend</p></div>
-      <div class="card"><i class="fas fa-male"></i><h3>Tenor</h3><p>Clear Highs · Improvisation<br>Head Voice · Expression</p></div>
-      <div class="card"><i class="fas fa-male"></i><h3>Bass</h3><p>Deep Foundation · Rhythm<br>Chest Voice · Bass Lines</p></div>
-      <div class="card"><i class="fas fa-drum"></i><h3>Vocal Percussion</h3><p>Beat Patterns · Drum Sounds<br>Creativity · Groove</p></div>
+    <div class="card-grid-wrapper">
+      <div class="card-grid">
+        <div class="card"><i class="fas fa-female"></i><h3>Soprano</h3><p>Bright Range · Falsetto<br>Sight-singing · Head Voice</p></div>
+        <div class="card"><i class="fas fa-female"></i><h3>Alto</h3><p>Warm Tone · Harmony<br>Rich Mid-range · Blend</p></div>
+        <div class="card"><i class="fas fa-male"></i><h3>Tenor</h3><p>Clear Highs · Improvisation<br>Head Voice · Expression</p></div>
+        <div class="card"><i class="fas fa-male"></i><h3>Bass</h3><p>Deep Foundation · Rhythm<br>Chest Voice · Bass Lines</p></div>
+        <div class="card"><i class="fas fa-drum"></i><h3>Vocal Percussion</h3><p>Beat Patterns · Drum Sounds<br>Creativity · Groove</p></div>
+      </div>
     </div>
 
     <div class="form-section">
@@ -455,7 +590,7 @@
         Ready to join us? Click the button below to fill out the audition form.<br>
         <span style="color: #f5d97a;">First Round: Jan 30-31 (Fri-Sat) · Location on form</span>
       </div>
-      <a href="#" class="form-button"><i class="fas fa-pen"></i> Fill Out Audition Form</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9GQlA1aKe6pbz7HMnSXLUnUm208a-2FjYHs-uV2Ql7rLC2Q/closedform?pli=1" class="form-button"><i class="fas fa-pen"></i> Fill Out Audition Form</a>
     </div>
 
     <div class="requirements-detailed">
@@ -499,7 +634,7 @@
     <div class="date-highlight">
       <i class="fas fa-star" style="color:#f5c542; margin-right:10px;"></i> 
       <strong>Callbacks:</strong> Sunday, Feb 1 · Learn a piece with our members — we'll see how your voice blends with the group!
-      <br><br>      <i class="fas fa-music" style="color:#f5c542; margin-right:10px;"></i> <strong>Update: </strong>Thank you for your interest in BCA. The application cycle for 2026 spring has closed. We hope you consider auditioning next semester!
+      <br><br><i class="fas fa-music" style="color:#f5c542; margin-right:10px;"></i> <strong>Update: </strong>Thank you for your interest in BCA. The application cycle for 2026 spring has closed. We hope you consider auditioning next semester!
     </div>
 
     <div class="faq-section">
@@ -537,7 +672,7 @@
       
       <div class="faq-item">
         <div class="faq-question">What's the time commitment?</div>
-        <div class="faq-answer">As a member, expect: <span class="highlight">two 2-hour weekly group rehearsals</span> (Tuesdays 7-9pm, Sundays 4-6pm), <span class="highlight">one 1-hour weekly sectional</span> (flexible time arranged by your voice part), plus occasional gigs throughout the semester. We also have a big concert at the end of each semester. Most importantly, we're a family and love hanging out together! </div>
+        <div class="faq-answer">As a member, expect: <span class="highlight">two 2-hour weekly group rehearsals</span> (Tuesdays 7-9pm, Sundays 4-6pm), <span class="highlight">one 1-hour weekly sectional</span> (flexible time arranged by your voice part), plus occasional gigs throughout the semester. We also have a big concert at the end of each semester. Most importantly, we're a family and love hanging out together!</div>
       </div>
       
       <div class="faq-item">
@@ -561,13 +696,14 @@
 <script>
 (function() {
   const logoElement = document.querySelector('.logo-text');
+
   function updateNavbarText(lang) {
     const navLinks = {
-      zh: ['首页', '试音', '关于', '日程', '社交'],
-      en: ['Home', 'Auditions', 'About', 'Dates', 'Social']
+      zh: ['首页', '试音', '关于', '日程', '邀约', '社交'],
+      en: ['Home', 'Auditions', 'About', 'Dates', 'Connect', 'Social']
     };
     const navItems = document.querySelectorAll('.nav-menu a');
-    if (navItems.length === 5) {
+    if (navItems.length === 6) {
       navItems.forEach((item, index) => {
         item.textContent = navLinks[lang][index];
       });

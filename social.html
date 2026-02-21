@@ -4,11 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>伯村清唱团 · 社交 | Social & Gallery</title>
-  <!-- 精美字体 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 -->
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -21,52 +20,135 @@
     .orb3 { background:rgba(255,215,0,0.3); width:40vmin; height:40vmin; left:20%; top:30%; animation-duration:18s; }
     @keyframes floatSoft { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(3%,4%) scale(1.1);} }
     
-    /* 导航栏 */
-    .navbar { display:flex; justify-content:space-between; align-items:center; padding:1.2rem 2.8rem; background:rgba(8,32,50,0.85); backdrop-filter:blur(16px); border-bottom:3px solid #e4b13b; flex-wrap:wrap; }
-    .logo-block { display:flex; align-items:center; gap:15px; }
+    .navbar { 
+      display:flex; 
+      justify-content:space-between; 
+      align-items:center; 
+      padding:1.2rem 2.8rem; 
+      background:rgba(8,32,50,0.85); 
+      backdrop-filter:blur(16px); 
+      border-bottom:3px solid #e4b13b; 
+      flex-wrap:wrap;
+      gap: 1rem;
+    }
+    
+    @media (max-width: 900px) {
+      .navbar {
+        padding: 1rem 1.5rem;
+        justify-content: center;
+      }
+      .nav-menu {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 1rem;
+        flex-direction: column;
+      }
+      .logo-block {
+        margin-bottom: 0.5rem;
+      }
+      .nav-menu {
+        gap: 1rem;
+      }
+      .nav-menu a {
+        font-size: 1.2rem;
+      }
+      .lang-panel {
+        margin-top: 0.5rem;
+      }
+    }
+    
+    .logo-block { display:flex; align-items:center; gap:15px; flex-wrap:wrap; }
     .logo-icon { font-size:3rem; color:#f5c542; filter:drop-shadow(0 0 12px #ffd966); animation:rotateMic 12s infinite linear; }
     @keyframes rotateMic { 0%{transform:rotate(0);}100%{transform:rotate(360deg);} }
     
-    .nav-menu { display:flex; gap:2.5rem; }
+    .nav-menu { display:flex; gap:2.5rem; flex-wrap:wrap; }
     .nav-menu a { color:#f0f7ff; text-decoration:none; font-size:1.4rem; font-family:'Poppins','Microsoft YaHei',sans-serif; position:relative; }
     .nav-menu a::after { content:''; position:absolute; bottom:0; left:0; width:0%; height:3px; background:linear-gradient(90deg,#f5d742,#e4b13b); transition:0.3s; }
     .nav-menu a:hover::after { width:100%; }
-    .logo-text { 
-        font-size:2.2rem; 
-        font-family:'Playfair Display','Noto Serif SC',serif; 
-        background:linear-gradient(145deg,#fffae6,#ffecb3); 
-        -webkit-background-clip:text; 
-        background-clip:text; 
-        color:transparent; 
-      }
-      .logo-text small { 
-        font-size:1rem; 
-        color:#bbd9ff; 
-        margin-left:8px; 
-        font-family:'Poppins',sans-serif; 
-        font-weight:400;
-        background:none;
-        -webkit-background-clip:unset;
-        background-clip:unset;
-      }
     
-    /* 语言切换 */
-    .lang-panel { display:flex; gap:0.5rem; }
+    .logo-text { 
+      font-size:2.2rem; 
+      font-family:'Playfair Display','Noto Serif SC',serif; 
+      background:linear-gradient(145deg,#fffae6,#ffecb3); 
+      -webkit-background-clip:text; 
+      background-clip:text; 
+      color:transparent; 
+    }
+    .logo-text small { 
+      font-size:1rem; 
+      color:#bbd9ff; 
+      margin-left:8px; 
+      font-family:'Poppins',sans-serif; 
+      font-weight:400;
+      background:none;
+      -webkit-background-clip:unset;
+      background-clip:unset;
+    }
+    
+    .lang-panel { display:flex; gap:0.5rem; flex-wrap:wrap; }
     .lang-btn { background:transparent; border:1.5px solid #e4b13b; color:white; padding:0.4rem 1.2rem; border-radius:40px; font-family:'Poppins',sans-serif; cursor:pointer; }
     .lang-btn.active { background:#e4b13b; color:#0a2d44; font-weight:600; }
+
+    .container { 
+      max-width:1300px; 
+      margin:2rem auto; 
+      padding:0 2.5rem; 
+    }
     
-    /* 主要内容区 */
-    .container { max-width:1300px; margin:2rem auto; padding:0 2.5rem; }
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      h1 {
+        font-size: 2.8rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1rem;
+      }
+      h1 {
+        font-size: 2.2rem;
+      }
+    }
+    
     h1 { font-size:3.5rem; font-family:'Playfair Display','Noto Serif SC',serif; border-bottom:4px solid #f5c542; display:inline-block; margin-bottom:2rem; }
     h2 { font-size:2.5rem; font-family:'Playfair Display','Noto Serif SC',serif; color:#f5d97a; margin:3rem 0 2rem; }
-    
-    /* 社交媒体图标 */
+
     .social-section {
       margin-top: 4rem;
       margin-bottom: 2rem;
       text-align: center;
     }
-    .social-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:3rem; margin:2rem 0; }
+    .social-grid { 
+      display:flex; 
+      flex-wrap:wrap; 
+      justify-content:center; 
+      gap:2rem; 
+      margin:2rem 0; 
+    }
+    
+    @media (max-width: 480px) {
+      .social-grid {
+        gap: 1.5rem;
+      }
+      .social-item {
+        width: 100px;
+        height: 100px;
+        font-size: 3rem;
+      }
+    }
+    
     .social-item {
       background:rgba(20,55,85,0.7);
       width:130px; height:130px;
@@ -90,13 +172,23 @@
       100% { border-radius:60% 40% 60% 40% / 40% 60% 40% 60%; }
     }
     
-    /* 图片画廊 - 你可以在这里插入图片 */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin: 3rem 0;
     }
+    
+    @media (max-width: 600px) {
+      .gallery-grid {
+        gap: 1.2rem;
+      }
+      .image-caption {
+        font-size: 1rem;
+        padding: 0.8rem;
+      }
+    }
+    
     .gallery-item {
       background: rgba(15, 45, 70, 0.6);
       border-radius: 30px;
@@ -135,7 +227,7 @@
       font-size: 1.1rem;
       background: rgba(0,0,0,0.2);
     }
-    /* 提示插入图片的说明 */
+
     .insert-instruction {
       background: rgba(212,175,55,0.15);
       border-radius: 50px;
@@ -149,7 +241,20 @@
     .lang-content { display:none; }
     .lang-content.active { display:block; }
     
-    footer { text-align:center; padding:2rem; border-top:2px solid #1f628e; margin-top:4rem; font-family:'Poppins','Noto Serif SC',sans-serif; }
+    footer { 
+      text-align:center; 
+      padding:2rem; 
+      border-top:2px solid #1f628e; 
+      margin-top:4rem; 
+      font-family:'Poppins','Noto Serif SC',sans-serif; 
+    }
+    
+    @media (max-width: 480px) {
+      footer {
+        padding: 1.5rem;
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -167,6 +272,7 @@
     <a href="auditions.html">试音</a>
     <a href="about.html">关于</a>
     <a href="dates.html">日程</a>
+    <a href="connect.html">邀约</a>
     <a href="social.html">社交</a>
   </div>
   <div class="lang-panel">
@@ -176,15 +282,12 @@
 </nav>
 
 <div class="container">
-  <!-- 中文内容 -->
   <div class="lang-content zh active">
     <h1>📸 日常点滴 & 社交平台</h1>
     
-    <!-- 图片画廊 - 你可以替换图片 -->
     <h2>🎭 我们的舞台瞬间</h2>
     
     <div class="gallery-grid">
-      <!-- 画廊项目 1 -->
       <div class="gallery-item">
         <div class="image-placeholder">
           <img src="https://drive.google.com/thumbnail?id=1Kbz16WJgET8IWY6nowhjQW_EVXJuhOi8&sz=w400-h300" alt="Welcome Back Acapella Show">
@@ -201,7 +304,7 @@
   
       <div class="gallery-item">
         <div class="image-placeholder">
-          <i class="fas fa-users"></i>
+          <img src="https://drive.google.com/thumbnail?id=1xkQP3ek7SNL_oHT2uX2wmIPnIuw9du9b&sz=w400-h300" alt="Team Bonding">
         </div>
         <div class="image-caption">我们的团建！</div>
       </div>
@@ -214,7 +317,6 @@
       </div>
     </div>
     
-    <!-- 社交平台链接 - 现在在底部 -->
     <div class="social-section">
       <h2>📱 关注我们</h2>
       <div class="social-grid">
@@ -228,7 +330,6 @@
     <p style="font-size:2rem; color:#f5d97a; margin:3rem 0; text-align:center;">#伯村清唱团</p>
   </div>
   
-  <!-- 英文内容 -->
   <div class="lang-content en">
     <h1>📸 Daily Moments & Social</h1>
 
@@ -251,7 +352,7 @@
   
       <div class="gallery-item">
         <div class="image-placeholder">
-          <i class="fas fa-users"></i>
+          <img src="https://drive.google.com/thumbnail?id=1xkQP3ek7SNL_oHT2uX2wmIPnIuw9du9b&sz=w400-h300" alt="Team Bonding">
         </div>
         <div class="image-caption">Team Bonding!</div>
       </div>
@@ -263,8 +364,7 @@
         <div class="image-caption">Spring Show</div>
       </div>
     </div>
-    
-    <!-- Social Media Links - Now at the bottom -->
+
     <div class="social-section">
       <h2>📱 Follow Us</h2>
       <div class="social-grid">
@@ -288,14 +388,13 @@
 (function() {
   const logoElement = document.querySelector('.logo-text');
 
-  // Update navigation bar text
   function updateNavbarText(lang) {
     const navLinks = {
-      zh: ['首页', '试音', '关于', '日程', '社交'],
-      en: ['Home', 'Auditions', 'About', 'Dates', 'Social']
+      zh: ['首页', '试音', '关于', '日程', '邀约', '社交'],
+      en: ['Home', 'Auditions', 'About', 'Dates', 'Connect', 'Social']
     };
     const navItems = document.querySelectorAll('.nav-menu a');
-    if (navItems.length === 5) {
+    if (navItems.length === 6) {
       navItems.forEach((item, index) => {
         item.textContent = navLinks[lang][index];
       });
@@ -303,23 +402,21 @@
   }
 
   function setActiveLang(lang) {
-    // Update buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
-    // Update content
     document.querySelectorAll('.lang-content').forEach(content => {
       content.classList.toggle('active', content.classList.contains(lang));
     });
-    // Update navigation
+
     updateNavbarText(lang);
-    // Update logo
+
     if (logoElement) {
       logoElement.innerHTML = lang === 'zh' 
         ? '伯村清唱团<small> BCA</small>' 
         : 'Berkeley Chinese Acapella<small> BCA</small>';
     }
-    // Save
+
     localStorage.setItem('bca-lang', lang);
   }
 

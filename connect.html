@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>伯村清唱团 · 演出邀约 | Connect</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { 
+      background: linear-gradient(145deg,#0a2a44,#1c4f7a); 
+      color:#f5faff; 
+      animation:fade 0.7s; 
+      font-family:'Poppins','Noto Serif SC','Microsoft YaHei',serif; 
+      min-height: 100vh;
+    }
+    @keyframes fade{to{opacity:1;}}
+    
+    .bg-illumination { 
+      position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2; overflow:hidden; 
+    }
+    .orb { 
+      position:absolute; border-radius:50%; filter:blur(80px); animation:floatSoft 20s infinite alternate; opacity:0.3; 
+    }
+    .orb1 { 
+      background:rgba(212,175,55,0.4); width:70vmax; height:70vmax; left:-10%; top:-20%; 
+    }
+    .orb2 { 
+      background:rgba(30,100,160,0.45); width:60vmin; height:60vmin; right:0; bottom:0; animation-duration:25s; 
+    }
+    .orb3 { 
+      background:rgba(255,215,0,0.3); width:40vmin; height:40vmin; left:20%; top:30%; animation-duration:18s; 
+    }
+    @keyframes floatSoft { 
+      0%{transform:translate(0,0) scale(1);} 100%{transform:translate(3%,4%) scale(1.1);} 
+    }
+    
+    /* 导航栏 - 响应式 */
+    .navbar { 
+      display:flex; 
+      justify-content:space-between; 
+      align-items:center; 
+      padding:1.2rem 2.8rem; 
+      background:rgba(8,32,50,0.85); 
+      backdrop-filter:blur(16px); 
+      border-bottom:3px solid #e4b13b; 
+      flex-wrap:wrap;
+      gap: 1rem;
+    }
+    
+    @media (max-width: 900px) {
+      .navbar {
+        padding: 1rem 1.5rem;
+        justify-content: center;
+      }
+      .nav-menu {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 1rem;
+        flex-direction: column;
+      }
+      .logo-block {
+        margin-bottom: 0.5rem;
+      }
+      .nav-menu {
+        gap: 1rem;
+      }
+      .nav-menu a {
+        font-size: 1.2rem;
+      }
+      .lang-panel {
+        margin-top: 0.5rem;
+      }
+    }
+    
+    .logo-block { display:flex; align-items:center; gap:15px; flex-wrap:wrap; }
+    .logo-icon { 
+      font-size:3rem; color:#f5c542; filter:drop-shadow(0 0 12px #ffd966); 
+      animation:rotateMic 12s infinite linear; 
+    }
+    @keyframes rotateMic { 
+      0%{transform:rotate(0);}100%{transform:rotate(360deg);} 
+    }
+    .logo-text { 
+      font-size:2.2rem; font-family:'Playfair Display','Noto Serif SC',serif; 
+      background:linear-gradient(145deg,#fffae6,#ffecb3); 
+      -webkit-background-clip:text; background-clip:text; color:transparent; 
+    }
+    .logo-text small { 
+      font-size:1rem; color:#bbd9ff; margin-left:8px; font-family:'Poppins',sans-serif; 
+    }
+    .nav-menu { display:flex; gap:2.5rem; flex-wrap:wrap; }
+    .nav-menu a { 
+      color:#f0f7ff; text-decoration:none; font-size:1.4rem; 
+      font-family:'Poppins','Microsoft YaHei',sans-serif; position:relative; 
+    }
+    .nav-menu a::after { 
+      content:''; position:absolute; bottom:0; left:0; width:0%; height:3px; 
+      background:linear-gradient(90deg,#f5d742,#e4b13b); transition:0.3s; 
+    }
+    .nav-menu a:hover::after { width:100%; }
+    
+    /* 语言切换 */
+    .lang-panel { display:flex; gap:0.5rem; flex-wrap:wrap; }
+    .lang-btn { 
+      background:transparent; border:1.5px solid #e4b13b; color:white; 
+      padding:0.4rem 1.2rem; border-radius:40px; font-family:'Poppins',sans-serif; 
+      cursor:pointer; 
+    }
+    .lang-btn.active { background:#e4b13b; color:#0a2d44; font-weight:600; }
+    
+    /* 主要内容区 */
+    .container { 
+      max-width: 1200px; 
+      margin: 3rem auto; 
+      padding: 0 2rem; 
+    }
+    
+    h1 { 
+      font-size: 3.5rem; 
+      font-family: 'Playfair Display', 'Noto Serif SC', serif; 
+      border-bottom: 4px solid #f5c542; 
+      display: inline-block; 
+      margin-bottom: 3rem; 
+    }
+    
+    .invite-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      margin: 3rem 0;
+    }
+
+    .invite-card {
+      background: rgba(15, 45, 70, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(228, 177, 59, 0.4);
+      border-radius: 40px;
+      padding: 2.5rem 2rem;
+      transition: all 0.4s ease;
+      box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .invite-card:hover {
+      transform: translateY(-10px);
+      border-color: #f5c542;
+      box-shadow: 0 30px 50px -10px #f5c54280;
+    }
+    
+    .card-icon {
+      font-size: 4rem;
+      color: #f5c542;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(0 0 15px rgba(245, 197, 66, 0.5));
+    }
+    
+    .card-title {
+      font-size: 2.2rem;
+      font-family: 'Playfair Display', 'Noto Serif SC', serif;
+      color: #f5d97a;
+      margin-bottom: 1rem;
+    }
+    
+    .card-text {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #e0f0ff;
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
+    
+    .card-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #f5c542, #e4b13b);
+      margin: 1rem auto 1.5rem;
+      border-radius: 3px;
+    }
+    
+    .card-benefits {
+      text-align: left;
+      margin: 1.5rem 0;
+      padding: 0 0.5rem;
+    }
+    
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+      color: #d0e5ff;
+    }
+    
+    .benefit-item i {
+      color: #f5c542;
+      width: 24px;
+      font-size: 1.1rem;
+    }
+    
+    .main-invite-card {
+      background: rgba(212, 175, 55, 0.15);
+      border: 2px solid #f5c542;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .main-invite-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(245, 197, 66, 0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+    
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .main-invite-card .card-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .btn-primary {
+      display: inline-block;
+      background: #e4b13b;
+      color: #0a2d44;
+      padding: 1rem 2.5rem;
+      border-radius: 60px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.2rem;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.3);
+      margin-top: 1rem;
+      letter-spacing: 1px;
+    }
+    
+    .btn-primary:hover {
+      background: #f5d742;
+      transform: scale(1.05) translateY(-3px);
+      box-shadow: 0 20px 30px -5px #f5c54280;
+    }
+    
+    .btn-primary i {
+      margin-right: 10px;
+    }
+    
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: #f5d97a;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 1.1rem;
+      border: 2px solid #e4b13b;
+      transition: all 0.3s;
+      margin-top: 1rem;
+    }
+    
+    .btn-outline:hover {
+      background: rgba(228, 177, 59, 0.2);
+      transform: translateY(-3px);
+      border-color: #f5c542;
+    }
+    
+    .star-decoration {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    
+    .star-decoration i {
+      color: #f5c542;
+      font-size: 1.2rem;
+      margin: 0 10px;
+      opacity: 0.7;
+    }
+    
+    .info-text {
+      text-align: center;
+      margin-top: 3rem;
+      color: #aac9ff;
+      font-size: 1.2rem;
+      padding: 2rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50px;
+      border: 1px dashed #e4b13b;
+    }
+    
+    .lang-content { display:none; }
+    .lang-content.active { display:block; }
+    
+    footer { 
+      text-align:center; padding:2rem; 
+      border-top:2px solid #1f628e; margin-top:4rem; 
+      font-family:'Poppins','Noto Serif SC',sans-serif; 
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.8rem;
+      }
+      .invite-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="bg-illumination">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+</div>
+
+<nav class="navbar">
+  <div class="logo-block">
+    <img src="https://drive.google.com/thumbnail?id=1p7BWUmZgcgdajdSbjSD4pw-29F8oBOiN&sz=w200" 
+         alt="伯村清唱团 Logo" 
+         style="height: 60px; width: auto; border-radius: 10px; filter: drop-shadow(0 0 8px #ffd966);">
+    <span class="logo-text" id="logo-main">伯村清唱团<small> BCA</small></span>
+  </div>
+  <div class="nav-menu">
+    <a href="index.html">首页</a>
+    <a href="auditions.html">试音</a>
+    <a href="about.html">关于</a>
+    <a href="dates.html">日程</a>
+    <a href="connect.html">邀约</a>
+    <a href="social.html">社交</a>
+  </div>
+  <div class="lang-panel">
+    <button class="lang-btn" data-lang="zh">中文</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="lang-content zh active">
+    <h1>📨 演出邀约</h1>
+    
+    <div class="star-decoration">
+      <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+    </div>
+    
+    <div class="invite-grid">
+      
+      <div class="invite-card main-invite-card">
+        <div class="card-content">
+          <div class="card-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <div class="card-title">与我们合作</div>
+          <div class="card-divider"></div>
+          <div class="card-text">
+            无论是校园活动、社区演出、商业合作还是私人聚会，<br>
+            我们都非常乐意用音乐为您的场合增添光彩。
+          </div>
+          <div class="card-benefits">
+            <div class="benefit-item">
+              <i class="fas fa-check-circle"></i> 专业阿卡贝拉演出
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-check-circle"></i> 中英双语曲目可选
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-check-circle"></i> 灵活档期安排
+            </div>
+          </div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfSikM4Vdk_LgjIgYM0730BbttJEEv0P_vc6qcSizja_f5xWw/viewform" 
+             target="_blank" 
+             class="btn-primary">
+            <i class="fas fa-paper-plane"></i> 立即填写邀约表
+          </a>
+          <p style="margin-top: 1rem; font-size: 0.9rem; color: #aac9ff;">
+            <i class="fas fa-clock"></i> 我们会在2-3个工作日内回复
+          </p>
+        </div>
+      </div>
+      
+      <div class="invite-card">
+        <div class="card-icon">
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+        <div class="card-title">过往演出</div>
+        <div class="card-divider"></div>
+        <div class="card-text">
+          我们曾受邀在多个重要场合演出，包括文化活动、春季专场、阿卡贝拉音乐节等。
+        </div>
+        <div class="card-benefits">
+          <div class="benefit-item">
+            <i class="fas fa-check"></i> 多元文化活动
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-check"></i> 春季专场演出
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-check"></i> 阿卡贝拉音乐节
+          </div>
+        </div>
+        <a href="dates.html" class="btn-outline">
+          <i class="fas fa-arrow-right"></i> 查看日程
+        </a>
+      </div>
+    </div>
+    
+    <div class="info-text">
+      <i class="fas fa-quote-left" style="color: #f5c542; margin-right: 10px;"></i>
+      我们相信，音乐是连接人心的桥梁。期待与您共同创造美好的音乐瞬间！
+      <i class="fas fa-quote-right" style="color: #f5c542; margin-left: 10px;"></i>
+    </div>
+    
+    <p style="text-align: center; margin: 2rem 0; font-size: 1rem; color: #aac9ff;">
+      邀约表链接: 
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfSikM4Vdk_LgjIgYM0730BbttJEEv0P_vc6qcSizja_f5xWw/viewform" 
+         target="_blank" 
+         style="color: #f5d97a; text-decoration: underline;">
+        https://forms.gle/shQEdeEkuSp5QjTi7
+      </a>
+    </p>
+  </div>
+
+  <!-- English Content -->
+  <div class="lang-content en">
+    <h1>📨 Performance Requests</h1>
+    
+    <div class="star-decoration">
+      <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+    </div>
+    
+    <!-- Invite Card Grid-->
+    <div class="invite-grid">
+      
+      <!-- Main Invite Card -->
+      <div class="invite-card main-invite-card">
+        <div class="card-content">
+          <div class="card-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <div class="card-title">Work With Us</div>
+          <div class="card-divider"></div>
+          <div class="card-text">
+            Whether it's campus events, community performances,<br>
+            corporate collaborations, or private gatherings, we'd love to bring music to your occasion.
+          </div>
+          <div class="card-benefits">
+            <div class="benefit-item">
+              <i class="fas fa-check-circle"></i> Professional a cappella performances
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-check-circle"></i> Bilingual repertoire available
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-check-circle"></i> Flexible scheduling
+            </div>
+          </div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfSikM4Vdk_LgjIgYM0730BbttJEEv0P_vc6qcSizja_f5xWw/viewform" 
+             target="_blank" 
+             class="btn-primary">
+            <i class="fas fa-paper-plane"></i> Fill Out Request Form
+          </a>
+          <p style="margin-top: 1rem; font-size: 0.9rem; color: #aac9ff;">
+            <i class="fas fa-clock"></i> We'll respond within 2-3 business days
+          </p>
+        </div>
+      </div>
+      
+      <!-- Past Performances Card -->
+      <div class="invite-card">
+        <div class="card-icon">
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+        <div class="card-title">Past Performances</div>
+        <div class="card-divider"></div>
+        <div class="card-text">
+          We've been invited to perform at various events including cultural celebrations, spring shows, and a cappella gigs.
+        </div>
+        <div class="card-benefits">
+          <div class="benefit-item">
+            <i class="fas fa-check"></i> Cultural Events
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-check"></i> Spring Shows
+          </div>
+          <div class="benefit-item">
+            <i class="fas fa-check"></i> A Cappella Gigs
+          </div>
+        </div>
+        <a href="dates.html" class="btn-outline">
+          <i class="fas fa-arrow-right"></i> View Schedule
+        </a>
+      </div>
+    </div>
+    
+    <!-- Additional Info Section -->
+    <div class="info-text">
+      <i class="fas fa-quote-left" style="color: #f5c542; margin-right: 10px;"></i>
+      We believe music connects people. We can't wait to create beautiful moments with you!
+      <i class="fas fa-quote-right" style="color: #f5c542; margin-left: 10px;"></i>
+    </div>
+    
+    <!-- Direct Link (Backup) -->
+    <p style="text-align: center; margin: 2rem 0; font-size: 1rem; color: #aac9ff;">
+      Form link: 
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfSikM4Vdk_LgjIgYM0730BbttJEEv0P_vc6qcSizja_f5xWw/viewform" 
+         target="_blank" 
+         style="color: #f5d97a; text-decoration: underline;">
+        https://forms.gle/shQEdeEkuSp5QjTi7
+      </a>
+    </p>
+  </div>
+</div>
+
+<footer>
+  <div class="lang-content zh active">© 伯村清唱团 · 保留所有权利</div>
+  <div class="lang-content en">© Berkeley Chinese Acapella · All rights reserved</div>
+</footer>
+
+<script>
+(function() {
+  const logoElement = document.getElementById('logo-main');
+
+  function updateNavbarText(lang) {
+    const navLinks = {
+      zh: ['首页', '试音', '关于', '日程', '邀约', '社交'],
+      en: ['Home', 'Auditions', 'About', 'Dates', 'Connect', 'Social']
+    };
+    const navItems = document.querySelectorAll('.nav-menu a');
+    if (navItems.length === 6) {
+      navItems.forEach((item, index) => {
+        item.textContent = navLinks[lang][index];
+      });
+    }
+  }
+
+  function setActiveLang(lang) {
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    document.querySelectorAll('.lang-content').forEach(content => {
+      content.classList.toggle('active', content.classList.contains(lang));
+    });
+    updateNavbarText(lang);
+    if (logoElement) {
+      logoElement.innerHTML = lang === 'zh' 
+        ? '伯村清唱团<small> BCA</small>' 
+        : 'Berkeley Chinese Acapella<small> BCA</small>';
+    }
+    localStorage.setItem('bca-lang', lang);
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setActiveLang(btn.dataset.lang));
+  });
+
+  const savedLang = localStorage.getItem('bca-lang');
+  setActiveLang(savedLang === 'en' ? 'en' : 'zh');
+})();
+</script>
+</body>
+</html>
