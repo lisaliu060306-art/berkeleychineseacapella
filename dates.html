@@ -74,7 +74,7 @@
          alt="伯村清唱团 Logo" 
          style="height: 60px; width: auto; border-radius: 10px; filter: drop-shadow(0 0 8px #ffd966);">
     <span class="logo-text">伯村清唱团<small> BCA</small></span>
-  </div>  <!-- 👈 Added missing closing div -->
+  </div> 
   
   <div class="nav-menu">
     <a href="index.html">首页</a>
@@ -150,23 +150,18 @@
   }
 
   function setActiveLang(lang) {
-    // Update buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
-    // Update content
     document.querySelectorAll('.lang-content').forEach(content => {
       content.classList.toggle('active', content.classList.contains(lang));
     });
-    // Update navigation
     updateNavbarText(lang);
-    // Update logo (PRECISE LINE)
     if (logoElement) {
       logoElement.innerHTML = lang === 'zh' 
         ? '伯村清唱团<small> BCA</small>' 
         : 'Berkeley Chinese Acapella<small> BCA</small>';
     }
-    // Save
     localStorage.setItem('bca-lang', lang);
   }
 

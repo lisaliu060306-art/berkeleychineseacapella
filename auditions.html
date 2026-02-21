@@ -345,7 +345,6 @@
       <a href="#" class="form-button"><i class="fas fa-pen"></i> 立即填写报名表</a>
     </div>
 
-    <!-- 详细试音要求 -->
     <div class="requirements-detailed">
       <h2>📋 试音环节</h2>
       
@@ -383,15 +382,12 @@
         <i class="fas fa-heart"></i> 最重要的是：做你自己，享受音乐！<i class="fas fa-heart"></i>
       </p>
     </div>
-
-    <!-- 复试说明 - 更新 -->
     <div class="date-highlight">
       <i class="fas fa-star" style="color:#f5c542; margin-right:10px;"></i> 
       <strong>复试通知：</strong> 2月1日 (周日) · 与团员一起学习一首新作品，我们会观察你的声音融合度和学习能力
       <br><br><i class="fas fa-music" style="color:#f5c542; margin-right:10px;"></i> <strong>更新：</strong>感谢大家对伯村清唱团的关注！2026年春季的招新报名已经截止。欢迎下学期再来试音，我们期待你的声音！
     </div>
 
-    <!-- FAQ 区域 - 更热情详细 -->
     <div class="faq-section">
       <h2>❓ 常见问题 · 有问必答</h2>
       
@@ -442,11 +438,9 @@
     </div>
   </div>
 
-  <!-- 英文内容 -->
   <div class="lang-content en">
     <h1>🎤 Auditions · Open Positions</h1>
     
-    <!-- Voice part cards - centered -->
     <div class="card-grid">
       <div class="card"><i class="fas fa-female"></i><h3>Soprano</h3><p>Bright Range · Falsetto<br>Sight-singing · Head Voice</p></div>
       <div class="card"><i class="fas fa-female"></i><h3>Alto</h3><p>Warm Tone · Harmony<br>Rich Mid-range · Blend</p></div>
@@ -455,7 +449,6 @@
       <div class="card"><i class="fas fa-drum"></i><h3>Vocal Percussion</h3><p>Beat Patterns · Drum Sounds<br>Creativity · Groove</p></div>
     </div>
 
-    <!-- Separate Audition Form Section -->
     <div class="form-section">
       <div class="form-title">📝 Audition Form</div>
       <div class="form-description">
@@ -465,7 +458,6 @@
       <a href="#" class="form-button"><i class="fas fa-pen"></i> Fill Out Audition Form</a>
     </div>
 
-    <!-- Detailed Requirements -->
     <div class="requirements-detailed">
       <h2>📋 Audition Components</h2>
       
@@ -504,14 +496,12 @@
       </p>
     </div>
 
-    <!-- Callback info - updated -->
     <div class="date-highlight">
       <i class="fas fa-star" style="color:#f5c542; margin-right:10px;"></i> 
       <strong>Callbacks:</strong> Sunday, Feb 1 · Learn a piece with our members — we'll see how your voice blends with the group!
       <br><br>      <i class="fas fa-music" style="color:#f5c542; margin-right:10px;"></i> <strong>Update: </strong>Thank you for your interest in BCA. The application cycle for 2026 spring has closed. We hope you consider auditioning next semester!
     </div>
 
-    <!-- FAQ Section -->
     <div class="faq-section">
       <h2>❓ Frequently Asked Questions</h2>
       
@@ -571,8 +561,6 @@
 <script>
 (function() {
   const logoElement = document.querySelector('.logo-text');
-
-  // Update navigation bar text
   function updateNavbarText(lang) {
     const navLinks = {
       zh: ['首页', '试音', '关于', '日程', '社交'],
@@ -587,23 +575,18 @@
   }
 
   function setActiveLang(lang) {
-    // Update buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
-    // Update content
     document.querySelectorAll('.lang-content').forEach(content => {
       content.classList.toggle('active', content.classList.contains(lang));
     });
-    // Update navigation
     updateNavbarText(lang);
-    // Update logo
     if (logoElement) {
       logoElement.innerHTML = lang === 'zh' 
         ? '伯村清唱团<small> BCA</small>' 
         : 'Berkeley Chinese Acapella<small> BCA</small>';
     }
-    // Save
     localStorage.setItem('bca-lang', lang);
   }
 

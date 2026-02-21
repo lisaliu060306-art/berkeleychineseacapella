@@ -61,7 +61,12 @@
     h2 { font-size:2.5rem; font-family:'Playfair Display','Noto Serif SC',serif; color:#f5d97a; margin:3rem 0 2rem; }
     
     /* 社交媒体图标 */
-    .social-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:3rem; margin:3rem 0; }
+    .social-section {
+      margin-top: 4rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .social-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:3rem; margin:2rem 0; }
     .social-item {
       background:rgba(20,55,85,0.7);
       width:130px; height:130px;
@@ -116,6 +121,12 @@
       color: #f5d97a;
       font-size: 3rem;
       border-bottom: 2px solid #e4b13b;
+      overflow: hidden;
+    }
+    .image-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     .image-caption {
       padding: 1rem;
@@ -145,9 +156,10 @@
 <div class="bg-illumination"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
 
 <nav class="navbar">
+  <div class="logo-block">
     <img src="https://drive.google.com/thumbnail?id=1p7BWUmZgcgdajdSbjSD4pw-29F8oBOiN&sz=w200" 
-       alt="伯村清唱团 Logo" 
-       style="height: 60px; width: auto; border-radius: 10px; filter: drop-shadow(0 0 8px #ffd966);">
+         alt="伯村清唱团 Logo" 
+         style="height: 60px; width: auto; border-radius: 10px; filter: drop-shadow(0 0 8px #ffd966);">
     <span class="logo-text" id="logo-main">伯村清唱团<small> BCA</small></span>
   </div>
   <div class="nav-menu">
@@ -170,107 +182,97 @@
     
     <!-- 图片画廊 - 你可以替换图片 -->
     <h2>🎭 我们的舞台瞬间</h2>
-    <div class="insert-instruction">
-      <i class="fas fa-image" style="color:#f5c542; margin-right:10px;"></i>
-      点击下方图片区域可替换为你自己的照片 (将背景图或img标签放入)
-    </div>
     
     <div class="gallery-grid">
-      <!-- 画廊项目 1 - 用 <img> 替换占位符 -->
+      <!-- 画廊项目 1 -->
       <div class="gallery-item">
         <div class="image-placeholder">
-          <i class="fas fa-camera"></i>
+          <img src="https://drive.google.com/thumbnail?id=1Kbz16WJgET8IWY6nowhjQW_EVXJuhOi8&sz=w400-h300" alt="Welcome Back Acapella Show">
         </div>
-        <div class="image-caption">2025 春浪音乐节 · 后台</div>
+        <div class="image-caption">欢迎回来阿卡贝拉秀</div>
       </div>
-      <!-- 画廊项目 2 -->
+
       <div class="gallery-item">
         <div class="image-placeholder">
-          <i class="fas fa-music"></i>
+          <img src="https://drive.google.com/thumbnail?id=1u7D85Va-BXs7YieN-9aoSbNpgk7JLPCw&sz=w400-h300" alt="Lunar New Year Celebration">
         </div>
-        <div class="image-caption">排练日常 · 蓝金和声</div>
+        <div class="image-caption">农历新年庆祝表演</div>
       </div>
-      <!-- 画廊项目 3 -->
-      <div class="gallery-item">
-        <div class="image-placeholder">
-          <i class="fas fa-microphone"></i>
-        </div>
-        <div class="image-caption">北京阿卡贝拉邀请赛</div>
-      </div>
-      <!-- 画廊项目 4 -->
+  
       <div class="gallery-item">
         <div class="image-placeholder">
           <i class="fas fa-users"></i>
         </div>
-        <div class="image-caption">团员聚餐 · 泊村一家</div>
+        <div class="image-caption">我们的团建！</div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="image-placeholder">
+          <img src="https://drive.google.com/thumbnail?id=1HNWQ9Sx0CmevPKQCzT8nMNrF4PuU36l2&sz=w400-h300" alt="Spring Show">
+        </div>
+        <div class="image-caption">春季演出</div>
       </div>
     </div>
     
-    <!-- 社交平台链接 -->
-    <h2>📱 关注我们</h2>
-    <div class="social-grid">
-      <a href="#" class="social-item"><i class="fab fa-weixin"></i></a>
-      <a href="#" class="social-item"><i class="fab fa-weibo"></i></a>
-      <a href="#" class="social-item"><i class="fab fa-spotify"></i></a>
-      <a href="#" class="social-item"><i class="fab fa-youtube"></i></a>
-      <a href="#" class="social-item"><i class="fab fa-instagram"></i></a>
-      <a href="#" class="social-item"><i class="fab fa-tiktok"></i></a>
+    <!-- 社交平台链接 - 现在在底部 -->
+    <div class="social-section">
+      <h2>📱 关注我们</h2>
+      <div class="social-grid">
+        <a href="https://mp.weixin.qq.com/s/_v9tqH5j_vYBgFGOLD-DKQ" class="social-item"><i class="fab fa-weixin"></i></a>
+        <a href="https://www.youtube.com/@BerkeleyChineseACappella" class="social-item"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.instagram.com/bcacappella?igsh=NTc4MTIwNjQ2YQ==" class="social-item"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:berkeleychineseacapella@gmail.com" class="social-item"><i class="fas fa-envelope"></i></a>
+      </div>
     </div>
     
     <p style="font-size:2rem; color:#f5d97a; margin:3rem 0; text-align:center;">#伯村清唱团</p>
   </div>
-
+  
   <!-- 英文内容 -->
   <div class="lang-content en">
     <h1>📸 Daily Moments & Social</h1>
-    
-    <!-- Gallery Section -->
+
     <h2>🎭 On Stage & Behind the Scenes</h2>
-    <div class="insert-instruction">
-      <i class="fas fa-image" style="color:#f5c542; margin-right:10px;"></i>
-      Replace these placeholders with your own images
-    </div>
     
     <div class="gallery-grid">
-      <!-- Gallery item 1 -->
       <div class="gallery-item">
         <div class="image-placeholder">
-          <i class="fas fa-camera"></i>
+          <img src="https://drive.google.com/thumbnail?id=1Kbz16WJgET8IWY6nowhjQW_EVXJuhOi8&sz=w400-h300" alt="Welcome Back Acapella Show">
         </div>
-        <div class="image-caption">Spring Wave 2025 · Backstage</div>
+        <div class="image-caption">Welcome Back Acapella Show</div>
       </div>
-      <!-- Gallery item 2 -->
+    
       <div class="gallery-item">
         <div class="image-placeholder">
-          <i class="fas fa-music"></i>
+          <img src="https://drive.google.com/thumbnail?id=1u7D85Va-BXs7YieN-9aoSbNpgk7JLPCw&sz=w400-h300" alt="Lunar New Year Celebration">
         </div>
-        <div class="image-caption">Rehearsal · Gold & Blue</div>
+        <div class="image-caption">Lunar New Year Celebration Performance</div>
       </div>
-      <!-- Gallery item 3 -->
-      <div class="gallery-item">
-        <div class="image-placeholder">
-          <i class="fas fa-microphone"></i>
-        </div>
-        <div class="image-caption">Beijing A Cappella Fest</div>
-      </div>
-      <!-- Gallery item 4 -->
+  
       <div class="gallery-item">
         <div class="image-placeholder">
           <i class="fas fa-users"></i>
         </div>
-        <div class="image-caption">Family Dinner · Bo Cun</div>
+        <div class="image-caption">Team Bonding!</div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="image-placeholder">
+          <img src="https://drive.google.com/thumbnail?id=1HNWQ9Sx0CmevPKQCzT8nMNrF4PuU36l2&sz=w400-h300" alt="Spring Show">
+        </div>
+        <div class="image-caption">Spring Show</div>
       </div>
     </div>
     
-    <!-- Social Media Links -->
-    <h2>📱 Follow Us</h2>
-    <div class="social-grid">
-      <a href="#" class="social-item"><i class="fab fa-weixin"></i></a>
-      <a href="#" class="social-item"><i class="fab fa-weibo"></i></a>
-      <a href="#" class="social-item"><i class="fab fa-spotify"></i></a>
-      <a href="#" class="social-item"><i class="fab fa-youtube"></i></a>
-      <a href="#" class="social-item"><i class="fab fa-instagram"></i></a>
-      <a href="#" class="social-item"><i class="fab fa-tiktok"></i></a>
+    <!-- Social Media Links - Now at the bottom -->
+    <div class="social-section">
+      <h2>📱 Follow Us</h2>
+      <div class="social-grid">
+        <a href="https://mp.weixin.qq.com/s/_v9tqH5j_vYBgFGOLD-DKQ" class="social-item"><i class="fab fa-weixin"></i></a>
+        <a href="https://www.youtube.com/@BerkeleyChineseACappella" class="social-item"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.instagram.com/bcacappella?igsh=NTc4MTIwNjQ2YQ==" class="social-item"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:berkeleychineseacapella@gmail.com" class="social-item"><i class="fas fa-envelope"></i></a>
+      </div>
     </div>
     
     <p style="font-size:2rem; color:#f5d97a; margin:3rem 0; text-align:center;">#BerkeleyChineseAcapella</p>
@@ -280,6 +282,8 @@
 <footer>
   <div class="lang-content zh active">© 伯村清唱团 · 保留所有权利</div>
   <div class="lang-content en">© Berkeley Chinese Acapella · All rights reserved</div>
+</footer>
+
 <script>
 (function() {
   const logoElement = document.querySelector('.logo-text');
@@ -309,7 +313,7 @@
     });
     // Update navigation
     updateNavbarText(lang);
-    // Update logo (PRECISE LINE)
+    // Update logo
     if (logoElement) {
       logoElement.innerHTML = lang === 'zh' 
         ? '伯村清唱团<small> BCA</small>' 
@@ -327,6 +331,5 @@
   setActiveLang(savedLang === 'en' ? 'en' : 'zh');
 })();
 </script>
-<script src="lang.js"></script>
 </body>
 </html>
