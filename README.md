@@ -1,4 +1,4 @@
-# ✨ 伯村清唱团 (Berkeley Chinese Acapella) ✨
+# ✨ 伯村清唱团 (Berkeley Chinese A Cappella) ✨
 
 Welcome to the official website of UC Berkeley's FIRST and ONLY Chinese a cappella group! 🎤🎶
 
